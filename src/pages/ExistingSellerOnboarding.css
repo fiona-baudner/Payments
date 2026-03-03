@@ -1,0 +1,4429 @@
+/* Aktiv Grotesk Fonts */
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: url('/fonts/AktivGrotesk_A_Basic_Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk';
+  src: url('/fonts/AktivGrotesk_A_Basic_Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/AktivGroteskEx_A_Basic_Rg.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv Grotesk Extended';
+  src: url('/fonts/AktivGroteskEx_A_Basic_Bd.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.mobile-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.mobile-screen {
+  width: 393px;
+  height: 852px;
+  background: white;
+  border-radius: 47px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: 'Aktiv Grotesk', -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.status-time {
+  color: #262626;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #262626;
+}
+
+.battery-icon {
+  width: 25px;
+  height: 12px;
+  border: 1px solid #262626;
+  border-radius: 3px;
+  padding: 1px;
+  position: relative;
+}
+
+.battery-icon::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 3px;
+  width: 2px;
+  height: 5px;
+  background: #262626;
+  border-radius: 0 1px 1px 0;
+}
+
+.battery-fill {
+  width: 100%;
+  height: 100%;
+  background: #262626;
+  border-radius: 1px;
+}
+
+/* Search Bar */
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 44px;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f3f3f3;
+  border-radius: 22px;
+  padding: 8px 12px;
+  height: 36px;
+}
+
+.search-bar svg {
+  color: #43484d;
+  flex-shrink: 0;
+}
+
+.search-placeholder {
+  color: #43484d;
+  font-size: 14px;
+}
+
+.header-icon-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: #262626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bag-btn {
+  position: relative;
+}
+
+.bag-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: #e20020;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 12px 8px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #262626;
+  margin: 0;
+  letter-spacing: 0.02px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+}
+
+.see-all-btn {
+  background: none;
+  border: none;
+  color: #3d37bd;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 100px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-image-container {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.like-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+
+.like-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.like-count {
+  font-size: 12px;
+  font-weight: 700;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  margin-top: -2px;
+}
+
+.product-details {
+  padding: 0 2px;
+}
+
+.product-brand,
+.product-size {
+  font-size: 12px;
+  color: #43484d;
+  margin: 0;
+  line-height: 16px;
+}
+
+.product-price-row {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.product-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: #262626;
+}
+
+.product-original-price {
+  font-size: 12px;
+  color: #747474;
+  text-decoration: line-through;
+}
+
+/* Toast Message */
+.toast-message {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #43484D;
+  padding: 12px 16px;
+  border-radius: 100px;
+  box-shadow: 0 8px 16px rgba(116, 116, 116, 0.3);
+  z-index: 100;
+  animation: toast-slide-up 0.3s ease-out;
+}
+
+.toast-message span {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  white-space: nowrap;
+}
+
+@keyframes toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Tab Bar */
+.tab-bar {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 8px 16px 0;
+  background: white;
+  border-top: 1px solid #e3e3e3;
+  height: 49px;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #262626;
+  font-size: 10px;
+  cursor: pointer;
+  min-width: 50px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+}
+
+.tab-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.tab-item.active {
+  font-weight: 700;
+}
+
+.tab-item.active img {
+  filter: invert(0);
+}
+
+.tab-item span {
+  line-height: 12px;
+}
+
+/* Home Indicator */
+.home-indicator-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  background: white;
+}
+
+.home-indicator {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 3px;
+}
+
+/* Back link positioning */
+.mobile-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.mobile-back:hover {
+  color: var(--color-primary);
+}
+
+/* Balance Respend Modal */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: white;
+  border-radius: 47px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 56px;
+}
+
+/* Story progress bars */
+.story-progress {
+  position: absolute;
+  top: 56px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  gap: 4px;
+}
+
+.story-bar {
+  flex: 1;
+  height: 4px;
+  background: #f3f3f3;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.story-bar-fill {
+  height: 100%;
+  background: #262626;
+  border-radius: 2px;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 76px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+}
+
+/* Balance card */
+.balance-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  margin-top: 20px;
+}
+
+.balance-card-image {
+  width: 238px;
+  height: 238px;
+  object-fit: contain;
+}
+
+/* Modal text content */
+.modal-text-content {
+  padding: 32px 16px 8px;
+  flex: 1;
+}
+
+.early-access-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 4px;
+}
+
+.modal-headline {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #262626;
+  margin: 0 0 12px;
+  letter-spacing: 0.04px;
+}
+
+.modal-description {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  padding: 8px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 48px;
+  background: #262626;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #404040;
+}
+
+.btn-tertiary {
+  width: 100%;
+  height: 44px;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+}
+
+.btn-tertiary:hover {
+  opacity: 0.7;
+}
+
+/* Modal home indicator */
+.modal-home-indicator {
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  background: white;
+}
+
+/* SSN Verification Screen */
+.ssn-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.ssn-nav-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ssn-header {
+  padding: 32px 16px;
+}
+
+.ssn-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #262626;
+  margin: 0 0 16px;
+}
+
+.ssn-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-input-section {
+  padding: 0 16px;
+  flex: 1;
+}
+
+.ssn-input-field {
+  width: 100%;
+  height: 56px;
+  background: white;
+  border: 1px solid #747474;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.ssn-input-placeholder {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #747474;
+}
+
+.ssn-help-link {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ssn-bottom {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  background: white;
+}
+
+.ssn-legal-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #43484d;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.ssn-link {
+  text-decoration: underline;
+}
+
+.btn-disabled {
+  background: #e3e3e3;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+  background: #e3e3e3;
+}
+
+/* Keyboard open state */
+.ssn-bottom.above-keyboard {
+  position: absolute;
+  bottom: 302px;
+  left: 0;
+  right: 0;
+  padding: 12px 16px 8px;
+  border-top: 1px solid #e3e3e3;
+  background: white;
+}
+
+/* Focused input field */
+.ssn-input-field.focused {
+  border-color: #262626;
+  border-width: 2px;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 12px;
+}
+
+.ssn-input-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+}
+
+.ssn-floating-label {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #747474;
+}
+
+.ssn-input-value {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+}
+
+.ssn-input-placeholder-inline {
+  color: #747474;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* iOS Numeric Keypad */
+.ios-numpad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #d1d3d9;
+  border-radius: 0 0 47px 47px;
+  overflow: hidden;
+}
+
+.numpad-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: #d1d3d9;
+  border-bottom: 1px solid #b8bac0;
+}
+
+.toolbar-btn {
+  background: none;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  color: #262626;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.toolbar-done {
+  font-weight: 600;
+}
+
+.numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  padding: 1px;
+  background: #b8bac0;
+}
+
+.numpad-key {
+  background: #fcfcfe;
+  border: none;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 1px;
+}
+
+.numpad-key:active {
+  background: #d1d3d9;
+}
+
+.numpad-empty {
+  background: #d1d3d9;
+  cursor: default;
+}
+
+.numpad-delete {
+  background: #d1d3d9;
+}
+
+.numpad-number {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #262626;
+  line-height: 1;
+}
+
+.numpad-letters {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #262626;
+  letter-spacing: 1.5px;
+}
+
+.numpad-home-indicator {
+  background: #d1d3d9;
+  padding: 16px 0 12px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 47px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.loading-logo {
+  width: 147px;
+  height: 147px;
+  object-fit: contain;
+}
+
+.loading-logo.spinning {
+  animation: flip 2.5s ease-in-out infinite;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  text-align: center;
+  width: 132px;
+}
+
+/* Success Screen */
+.success-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.success-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+}
+
+.close-button {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.success-icon {
+  width: 177px;
+  height: 177px;
+  object-fit: contain;
+  margin-bottom: 24px;
+  animation: bounce-in 0.6s ease-out;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.95) translateY(5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.success-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #262626;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.success-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  text-align: center;
+  margin: 0;
+}
+
+.success-description + .success-description {
+  margin-top: 16px;
+}
+
+.success-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px 0;
+  background: #fff;
+}
+
+.success-bottom .home-indicator-container {
+  position: relative;
+  margin-top: 8px;
+}
+
+/* Pending Screen */
+.pending-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.pending-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+}
+
+.pending-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.pending-icon {
+  width: 177px;
+  height: 177px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.pending-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #262626;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.pending-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  text-align: center;
+  margin: 0;
+}
+
+.pending-description + .pending-description {
+  margin-top: 16px;
+}
+
+.pending-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px 0;
+  background: #fff;
+}
+
+.pending-bottom .home-indicator-container {
+  position: relative;
+  margin-top: 8px;
+}
+
+/* Failed Screen */
+.failed-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.failed-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+}
+
+.failed-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.failed-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ff4444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.failed-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #262626;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.failed-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  text-align: center;
+  margin: 0;
+}
+
+.failed-description + .failed-description {
+  margin-top: 16px;
+}
+
+.failed-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px 0;
+  background: #fff;
+}
+
+.failed-bottom .home-indicator-container {
+  position: relative;
+  margin-top: 8px;
+}
+
+/* No Sign-up Result Screen */
+.no-signup-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.no-signup-nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+}
+
+.no-signup-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.no-signup-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  margin-bottom: 24px;
+}
+
+.no-signup-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #262626;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.no-signup-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  text-align: center;
+  margin: 0;
+}
+
+.no-signup-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px 0;
+  background: #fff;
+}
+
+/* Decline Reasons Screen */
+.decline-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.decline-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.decline-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.decline-content {
+  flex: 1;
+  padding: 16px 0;
+  overflow-y: auto;
+}
+
+.decline-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 12px;
+  padding: 0 12px;
+}
+
+.decline-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.decline-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: white;
+  border: none;
+  border-bottom: 1px solid #e3e3e3;
+  cursor: pointer;
+  text-align: left;
+}
+
+.decline-option:hover {
+  background: #f9f9f9;
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #747474;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.radio-circle.selected {
+  border-color: #262626;
+}
+
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #262626;
+}
+
+.decline-option-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #262626;
+}
+
+.decline-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 16px 0;
+  background: #fff;
+}
+
+.decline-bottom .btn-tertiary {
+  width: 100%;
+  margin-top: 0;
+}
+
+.decline-bottom .home-indicator-container {
+  position: relative;
+  margin-top: 8px;
+}
+
+.no-signup-bottom .home-indicator-container {
+  position: relative;
+  margin-top: 8px;
+}
+
+/* Find Out More Modal */
+.find-out-modal-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.find-out-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.find-out-modal-container {
+  position: relative;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.find-out-modal-grabber {
+  width: 43px;
+  height: 4px;
+  background: #e3e3e3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.find-out-modal-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.find-out-modal-close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.find-out-modal-title {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  text-align: center;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.find-out-modal-content {
+  padding: 16px;
+}
+
+.find-out-modal-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #262626;
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.find-out-modal-footer {
+  padding: 8px 16px 0;
+}
+
+.find-out-modal-footer .btn-primary {
+  width: 100%;
+}
+
+.find-out-modal-indicator {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Help Centre Modal/Screen */
+.help-centre-screen {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.help-centre-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 95px;
+  background: #3d3b3b;
+}
+
+.help-centre-status {
+  position: relative;
+  z-index: 1;
+}
+
+.help-centre-status .status-time,
+.help-centre-status .status-icons svg,
+.help-centre-status .battery-icon {
+  color: #fff;
+  fill: #fff;
+}
+
+.help-centre-status .battery-fill {
+  background: #fff;
+}
+
+.help-centre-nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 16px;
+  height: 44px;
+  background: #fff;
+}
+
+.help-centre-back,
+.help-centre-close {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-centre-nav-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.help-centre-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #fff;
+  padding-bottom: 34px;
+}
+
+.help-centre-branding {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.help-centre-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.help-centre-logo {
+  height: 20px;
+  width: auto;
+}
+
+.help-centre-brand-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #262626;
+}
+
+.help-centre-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f3f3f3;
+  border-radius: 22px;
+  padding: 8px 12px;
+  height: 44px;
+}
+
+.help-centre-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  padding-top: 0;
+}
+
+.help-centre-breadcrumb span {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #262626;
+}
+
+.help-centre-breadcrumb svg {
+  flex-shrink: 0;
+}
+
+.help-centre-article-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #262626;
+  margin: 0;
+  padding: 16px;
+  padding-top: 0;
+}
+
+.help-centre-article {
+  padding: 0 16px;
+}
+
+.help-centre-article h3 {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #262626;
+  margin: 24px 0 16px 0;
+}
+
+.help-centre-article h3:first-child {
+  margin-top: 0;
+}
+
+.help-centre-article p {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.help-centre-divider {
+  height: 0.5px;
+  background: #d7d7d7;
+  margin: 32px 16px;
+}
+
+.help-centre-related {
+  padding: 0 16px;
+}
+
+.help-centre-related h3 {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #262626;
+  margin: 0 0 24px 0;
+}
+
+.help-centre-related a {
+  display: block;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #262626;
+  text-decoration: underline;
+  margin-bottom: 24px;
+}
+
+.help-centre-help {
+  padding: 0 16px 48px;
+}
+
+.help-centre-help h3 {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #262626;
+  margin: 0 0 24px 0;
+}
+
+.help-centre-help .btn-primary {
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.help-centre-help .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #262626;
+  border-radius: 22px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #262626;
+  cursor: pointer;
+}
+
+/* Depop Balance Screen */
+.balance-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.balance-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.balance-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.balance-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.balance-card-hero {
+  padding: 8px 16px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-card-gradient {
+  width: 285px;
+  height: 178px;
+  border-radius: 16px;
+  background: linear-gradient(to top, #41164F 0%, #91013F 50%, #E20020 100%);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-card-gradient::before {
+  content: '';
+  position: absolute;
+  width: 204px;
+  height: 201px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(52.39% 52.39% at 50% 50%, #FFF 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.3;
+  filter: blur(102px);
+  pointer-events: none;
+}
+
+.balance-card-watermark {
+  position: absolute;
+  width: 283.16px;
+  height: 73.22px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -20px;
+  object-fit: contain;
+  opacity: 0.1;
+}
+
+
+.balance-card-gradient .balance-card-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.017px;
+  font-feature-settings: 'liga' off, 'clig' off;
+  margin: 0 0 12px 0;
+  color: #FFF !important;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  overflow: visible;
+  padding: 4px 0;
+}
+
+.balance-card-logo {
+  height: 12px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
+  display: block;
+}
+
+.balance-card-amount {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  font-style: normal;
+  line-height: normal;
+  margin: 0;
+  color: #FFF;
+}
+
+.balance-card-divider {
+  width: 120px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 8px 0;
+}
+
+.balance-card-pending {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.019px;
+  font-feature-settings: 'liga' off, 'clig' off;
+  margin: 0;
+  color: #FFF;
+}
+
+.verification-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 16px 16px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 12px;
+}
+
+.verification-banner-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.verification-banner-text {
+  flex: 1;
+}
+
+.verification-banner-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 4px 0;
+}
+
+.verification-banner-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.balance-pending-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin: 0 16px 16px;
+}
+
+.balance-unlock-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin: 0 16px 16px;
+  border: none;
+  width: calc(100% - 32px);
+  cursor: pointer;
+  text-align: left;
+}
+
+.balance-unlock-banner svg {
+  flex-shrink: 0;
+  color: #262626;
+}
+
+/* Promo Banner for declined mode */
+.balance-promo-banner {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding: 16px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin: 0 16px 16px;
+}
+
+.promo-banner-content {
+  flex: 1;
+}
+
+.promo-banner-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 4px 0;
+}
+
+.promo-banner-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.promo-banner-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.promo-banner-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.balance-withdraw-section {
+  padding: 0 16px 16px;
+}
+
+.balance-buttons-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 16px;
+}
+
+.balance-buttons-section .btn-primary,
+.balance-buttons-section .btn-secondary {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 20px;
+  border-radius: 100px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.balance-buttons-section .btn-secondary {
+  background: white;
+  border: 1px solid #e8e8e8;
+  color: #262626;
+}
+
+.balance-buttons-section .btn-secondary.btn-disabled {
+  background: #f3f3f3;
+  border-color: #e8e8e8;
+  color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.balance-divider {
+  height: 4px;
+  background: #E8E8E8;
+}
+
+.transactions-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 8px 16px;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.transactions-header {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.transactions-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.see-all-link {
+  display: flex;
+  height: 24px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.014px;
+  font-feature-settings: 'liga' off, 'clig' off;
+  color: #262626;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.transactions-date {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #747474;
+  margin: 0;
+}
+
+.transaction-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  width: 100%;
+  align-self: stretch;
+}
+
+.transaction-image {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.transaction-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.transaction-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background: #297F00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-type {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.transaction-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.transaction-status {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #747474;
+  margin: 0;
+}
+
+.transaction-amount {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #297F00;
+  margin: 0;
+  text-align: right;
+  margin-left: auto;
+}
+
+/* Balance Legal Footer */
+.balance-legal-footer {
+  padding: 36px 16px 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.balance-legal-footer p {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  color: #747474;
+  margin: 0;
+}
+
+.balance-legal-footer a {
+  color: #747474;
+  text-decoration: underline;
+}
+
+/* Decision Screen */
+.decision-screen {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 48px 20px 24px;
+  border-radius: 47px;
+  overflow-y: auto;
+}
+
+.decision-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: #262626;
+  margin: 0 0 4px 0;
+  text-align: center;
+}
+
+.decision-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.decision-section {
+  margin-bottom: 24px;
+}
+
+.decision-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0 0 12px 0;
+}
+
+.decision-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.decision-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background: #f8f8f8;
+  border: 1px solid #e3e3e3;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.decision-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.decision-card:active {
+  transform: translateY(0);
+}
+
+.decision-card-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.decision-card-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #262626;
+  text-align: center;
+}
+
+/* Bag Screen */
+.bag-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.bag-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.bag-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.bag-edit {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+.bag-content {
+  padding: 16px 12px;
+}
+
+.bag-seller-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.bag-seller-info {
+  display: flex;
+  gap: 8px;
+}
+
+.bag-seller-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bag-seller-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bag-seller-name {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #262626;
+  margin: 0;
+}
+
+.bag-seller-active {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #262626;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.active-dot {
+  color: #10b981;
+  font-size: 8px;
+}
+
+.bag-seller-items {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2;
+  color: #262626;
+  margin: 0;
+}
+
+.bag-price-info {
+  text-align: right;
+}
+
+.bag-total-price {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.bag-shipping {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #747474;
+  margin: 0;
+}
+
+.bag-items {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 16px;
+}
+
+.bag-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bag-product-card {
+  width: 130px;
+  height: 130px;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bag-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bag-product-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.bag-product-price {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+
+.bag-product-size {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+
+.bag-item-nudge {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #747474;
+  margin: 0;
+}
+
+.bag-add-bundle {
+  width: 130px;
+  height: 130px;
+  border: 1px dashed #d7d7d7;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  gap: 4px;
+}
+
+.bag-add-icon {
+  font-size: 24px;
+  color: #43484d;
+}
+
+.bag-add-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.28;
+  color: #43484d;
+  text-align: center;
+  margin: 0;
+}
+
+.bag-separator {
+  height: 1px;
+  background: #c8c7cc;
+  margin: 16px 12px;
+}
+
+/* Checkout Screen */
+.checkout-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 47px;
+  overflow: hidden;
+}
+
+.checkout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.checkout-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.checkout-edit {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+.checkout-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 180px;
+}
+
+.checkout-product {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  align-items: center;
+}
+
+.checkout-product-image {
+  width: 104px;
+  height: 104px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.checkout-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.checkout-product-name {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.checkout-product-details {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.5;
+  color: #747474;
+  margin: 0;
+}
+
+.checkout-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.checkout-row-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-row-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.checkout-row-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.checkout-divider-thick {
+  height: 4px;
+  background: #e3e3e3;
+}
+
+.checkout-section {
+  padding: 0 16px;
+}
+
+.checkout-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 16px 0;
+}
+
+.checkout-pending-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+img.pending-banner-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.pending-banner-text {
+  flex: 1;
+}
+
+.pending-banner-title {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 2px 0;
+}
+
+.pending-banner-desc {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 14px;
+  color: #747474;
+  margin: 0;
+}
+
+/* Unlock Balance Banner */
+.checkout-unlock-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #F3F3F3;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+}
+
+img.unlock-banner-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.unlock-banner-text {
+  flex: 1;
+}
+
+.unlock-banner-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 2px 0;
+}
+
+.unlock-banner-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #747474;
+  margin: 0;
+}
+
+.checkout-unlock-banner svg {
+  flex-shrink: 0;
+  color: #262626;
+}
+
+.checkout-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #d7d7d7;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.checkout-payment-option:last-child {
+  border-bottom: none;
+}
+
+.radio-button {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #acacac;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.radio-button.selected {
+  border-color: #262626;
+  background: #262626;
+  position: relative;
+}
+
+.radio-button.selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.payment-icon {
+  width: 32px;
+  height: 24px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.payment-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.payment-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+  flex: 1;
+}
+
+.payment-amount {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+/* Unlock Balance Banner */
+.unlock-balance-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.unlock-balance-banner:hover {
+  background: #ebebeb;
+}
+
+.unlock-balance-card {
+  width: 40px;
+  height: 28px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.unlock-balance-text {
+  flex: 1;
+}
+
+.unlock-balance-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  color: #262626;
+  margin: 0;
+}
+
+.unlock-balance-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #747474;
+  margin: 0;
+}
+
+/* Disabled payment option */
+.checkout-payment-option.disabled {
+  opacity: 0.5;
+}
+
+.radio-button.disabled {
+  border-color: #d7d7d7;
+  background: #f5f5f5;
+}
+
+.payment-label.disabled,
+.payment-amount.disabled {
+  color: #acacac;
+}
+
+/* Apple Pay button variant */
+.btn-apple-pay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.apple-pay-btn-icon {
+  height: 18px;
+  width: auto;
+}
+
+.checkout-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 12px 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkout-stripe-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #43484d;
+  text-align: center;
+  margin: 0;
+}
+
+.checkout-payment-icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.payment-icon-small {
+  width: 32px;
+  height: 24px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.payment-icon-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.payment-icon-small.apple-pay img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.checkout-legal {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #747474;
+  margin: 16px 0 0 0;
+  padding: 0 16px;
+}
+
+.checkout-legal a,
+.checkout-legal-link {
+  color: #747474;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.checkout-legal-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #747474;
+  margin: 0;
+}
+
+.checkout-bottom .home-indicator-container {
+  position: relative;
+  width: 100%;
+}
+
+/* SSN Verification Modal Sheet */
+.sheet-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+  border-radius: 47px;
+}
+
+.ssn-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  animation: sheet-slide-up 0.3s ease-out;
+}
+
+@keyframes sheet-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.sheet-grabber {
+  width: 43px;
+  height: 4px;
+  background: #e3e3e3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.sheet-close {
+  position: absolute;
+  top: 18px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-content {
+  padding: 56px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.sheet-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.sheet-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.sheet-input-field {
+  width: 100%;
+  height: 56px;
+  background: white;
+  border: 1px solid #747474;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sheet-input-field.focused {
+  border-color: #262626;
+  border-width: 2px;
+}
+
+.sheet-input-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.sheet-floating-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #747474;
+  line-height: 1.2;
+}
+
+.sheet-input-placeholder {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #747474;
+}
+
+.sheet-input-value {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+}
+
+.sheet-help-link {
+  background: none;
+  border: none;
+  padding: 12px 0;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sheet-legal-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #43484d;
+  text-align: center;
+  margin: 0;
+}
+
+.sheet-link {
+  text-decoration: underline;
+}
+
+.sheet-bottom {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+}
+
+.sheet-bottom.above-keyboard {
+  padding-bottom: 8px;
+}
+
+.sheet-bottom .btn-primary {
+  width: 100%;
+}
+
+.sheet-bottom .home-indicator-container {
+  position: relative;
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  padding-top: 16px;
+  box-sizing: border-box;
+}
+
+.sheet-keyboard {
+  background: #d1d5db;
+  padding-bottom: 20px;
+  border-radius: 0 0 47px 47px;
+}
+
+.ssn-sheet .keyboard-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #f3f4f6;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ssn-sheet .keyboard-cancel,
+.ssn-sheet .keyboard-done {
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.ssn-sheet .keyboard-cancel {
+  color: #262626;
+}
+
+.ssn-sheet .keyboard-done {
+  color: #3478f6;
+  font-weight: 600;
+}
+
+.ssn-sheet .numpad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #d1d5db;
+}
+
+.ssn-sheet .numpad-key {
+  background: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+}
+
+.ssn-sheet .numpad-key:active {
+  background: #e5e7eb;
+}
+
+.ssn-sheet .numpad-key.empty {
+  background: #d1d5db;
+  cursor: default;
+}
+
+.ssn-sheet .numpad-key.delete {
+  background: #d1d5db;
+}
+
+.ssn-sheet .numpad-number {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #262626;
+  line-height: 1;
+}
+
+.ssn-sheet .numpad-letters {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #262626;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+/* Verified State */
+.verified-sheet {
+  padding-bottom: 0;
+}
+
+.verified-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.verified-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+.verified-icon.bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+.pending-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+}
+
+.pending-icon.bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+.verified-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.verified-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.verified-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+/* Order Confirmation Modal */
+.order-confirmation-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  z-index: 200;
+}
+
+.order-confirmation-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-close-button {
+  position: absolute;
+  top: 56px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 201;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-close-button svg {
+  color: #262626;
+}
+
+.order-confirmation-sheet {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  animation: sheet-slide-up 0.3s ease-out;
+  overflow-y: auto;
+}
+
+.order-confirmation-content {
+  padding: 24px 16px;
+  flex: 1;
+}
+
+.order-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.order-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 16px 0;
+}
+
+.order-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.order-buttons .btn-secondary {
+  flex: 1;
+  padding: 14px 20px;
+  background: #fff;
+  border: 1px solid #262626;
+  border-radius: 100px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+}
+
+.order-buttons .btn-primary {
+  flex: 1;
+  padding: 14px 20px;
+  font-size: 14px;
+}
+
+.order-delivery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.order-delivery-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.order-delivery-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+  margin: 0;
+}
+
+.order-delivery-label .info-icon {
+  font-size: 12px;
+  color: #747474;
+}
+
+.order-delivery-date {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+.order-qr-icon {
+  width: 48px;
+  height: 48px;
+  background: #ff7a45;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.order-qr-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.order-section {
+  padding: 16px 0;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.order-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.order-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.order-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-detail-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+.order-detail-value {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.order-detail-amount {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+}
+
+.order-suggested {
+  padding: 24px 0;
+}
+
+.order-suggested-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-style: italic;
+  color: #262626;
+  margin: 0 0 16px 0;
+}
+
+.order-suggested-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.suggested-item {
+  position: relative;
+}
+
+.suggested-image {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+.suggested-price {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #262626;
+}
+
+/* Pending Flow Modal */
+.pending-flow-sheet {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  z-index: 201;
+  display: flex;
+  flex-direction: column;
+  animation: sheet-slide-up 0.3s ease-out;
+  padding-bottom: 0;
+  overflow: visible;
+  min-height: 520px;
+}
+
+/* New Pending Modal Styles */
+.pending-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+}
+
+.pending-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.pending-modal-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 8px 24px 8px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: sheet-slide-up 0.3s ease-out;
+}
+
+.pending-modal-grabber {
+  width: 36px;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.pending-modal-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.pending-modal-card {
+  width: 180px;
+  height: auto;
+  margin: 16px 0;
+  align-self: center;
+}
+
+.pending-modal-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #262626;
+  margin: 0 0 8px 0;
+  text-align: left;
+}
+
+.pending-modal-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: #262626;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
+
+.pending-modal-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 24px 0;
+  text-align: left;
+}
+
+.pending-modal-dots {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  align-self: center;
+}
+
+.pending-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0e0e0;
+}
+
+.pending-dot.active {
+  background: #262626;
+}
+
+.pending-modal-btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.pending-modal-btn-tertiary {
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  padding: 12px 24px;
+  margin-bottom: 8px;
+  align-self: center;
+}
+
+.pending-modal-indicator {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.pending-modal-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 3px;
+}
+
+/* Balance Onboarding Modal - Carousel */
+.onboarding-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+}
+
+.onboarding-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.onboarding-modal-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 8px 0 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: sheet-slide-up 0.3s ease-out;
+  overflow: hidden;
+}
+
+.onboarding-modal-grabber {
+  width: 36px;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.onboarding-modal-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+}
+
+.onboarding-carousel {
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+}
+
+.onboarding-slides {
+  display: flex;
+  transition: transform 0.3s ease-out;
+  cursor: grab;
+}
+
+.onboarding-slides.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+
+.onboarding-slide {
+  min-width: 100%;
+  padding: 16px 24px 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.onboarding-slide-image {
+  width: 180px;
+  height: auto;
+  margin: 0 auto 16px auto;
+  display: block;
+}
+
+.onboarding-slide-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #262626;
+  margin: 0 0 8px 0;
+  text-align: left;
+}
+
+.onboarding-slide-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: #262626;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
+
+.onboarding-slide-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+  text-align: left;
+}
+
+.onboarding-dots {
+  display: flex;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.onboarding-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.onboarding-dot.active {
+  background: #262626;
+}
+
+.onboarding-btn-primary {
+  width: calc(100% - 48px);
+  padding: 16px;
+  background: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 24px 8px 24px;
+}
+
+.onboarding-btn-tertiary {
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  padding: 12px 24px;
+  margin-bottom: 8px;
+}
+
+.onboarding-indicator {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.onboarding-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 3px;
+}
+
+/* Balance Onboarding Scroll Modal */
+.scroll-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+}
+
+.scroll-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.scroll-modal-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  animation: sheet-slide-up 0.3s ease-out;
+  max-height: 85%;
+}
+
+.scroll-modal-grabber {
+  width: 36px;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin: 8px auto;
+  flex-shrink: 0;
+}
+
+.scroll-modal-close {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+}
+
+.scroll-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hero Section */
+.scroll-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.scroll-hero-image {
+  width: 180px;
+  height: auto;
+  margin: 0 auto 16px auto;
+  display: block;
+}
+
+.scroll-hero-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.scroll-hero-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+  color: #262626;
+  margin: 0 0 12px 0;
+}
+
+.scroll-hero-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+  margin: 0;
+}
+
+/* Bullet Points */
+.scroll-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.scroll-bullet {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scroll-bullet-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scroll-bullet-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.scroll-bullet-text {
+  flex: 1;
+}
+
+.scroll-bullet-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0 0 2px 0;
+}
+
+.scroll-bullet-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #747474;
+  margin: 0;
+}
+
+.scroll-modal-footer {
+  padding: 16px 24px 8px 24px;
+  border-top: 1px solid #e8e8e8;
+  flex-shrink: 0;
+}
+
+.scroll-modal-btn-primary {
+  width: 100%;
+  padding: 16px;
+  background: #262626;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.scroll-modal-btn-tertiary {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  padding: 12px 24px;
+  text-align: center;
+}
+
+.scroll-modal-indicator {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.scroll-modal-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 3px;
+}
+
+.pending-flow-content {
+  padding: 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pending-flow-card {
+  width: 160px;
+  height: auto;
+  margin-bottom: 24px;
+  align-self: center;
+}
+
+.pending-flow-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #262626;
+  margin: 0 0 16px 0;
+}
+
+.pending-flow-description {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0 0 16px 0;
+}
+
+.pending-flow-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  align-self: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.pending-flow-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d7d7d7;
+}
+
+.pending-flow-dots .dot.active {
+  background: #262626;
+}
+
+.pending-flow-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pending-flow-buttons .btn-primary {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+button.pending-flow-notnow {
+  display: block;
+  background: transparent;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: #262626;
+  cursor: pointer;
+  padding: 12px 24px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.pending-flow-sheet .home-indicator-container {
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+/* My Depop Screen */
+.mydepop-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.mydepop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 8px;
+}
+
+.mydepop-username {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #262626;
+  margin: 0;
+}
+
+.mydepop-header-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.mydepop-icon-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mydepop-tabs {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 16px;
+}
+
+.mydepop-tab {
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #747474;
+  cursor: pointer;
+  position: relative;
+}
+
+.mydepop-tab.active {
+  color: #262626;
+  font-weight: 600;
+}
+
+.mydepop-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: #262626;
+}
+
+.mydepop-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.mydepop-profile {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 16px;
+}
+
+.mydepop-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fee8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-emoji {
+  font-size: 28px;
+}
+
+.mydepop-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #262626;
+}
+
+.stat-label {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 12px;
+  color: #747474;
+}
+
+.mydepop-bio {
+  padding: 0 16px 16px;
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  margin: 0;
+}
+
+.mydepop-revenue-card {
+  display: flex;
+  align-items: center;
+  margin: 0 16px 16px;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+}
+
+.revenue-left,
+.revenue-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.revenue-left {
+  border-right: 1px solid #e8e8e8;
+  padding-right: 16px;
+}
+
+.revenue-right {
+  padding-left: 16px;
+}
+
+.revenue-amount {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #262626;
+}
+
+.revenue-label {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 12px;
+  color: #262626;
+}
+
+.revenue-period {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 12px;
+  color: #747474;
+}
+
+.mydepop-revenue-card svg {
+  flex-shrink: 0;
+}
+
+.mydepop-section {
+  padding: 16px;
+}
+
+.mydepop-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mydepop-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+.mydepop-filter-btn {
+  background: none;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mydepop-items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.mydepop-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.mydepop-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* My Account Screen */
+.myaccount-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.myaccount-header {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 8px;
+  gap: 8px;
+}
+
+.myaccount-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #262626;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  margin-right: 36px;
+}
+
+.myaccount-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  padding-bottom: 100px;
+}
+
+.myaccount-balance-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.myaccount-balance-card img.balance-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: contain;
+  margin-right: 12px;
+  border: 1px solid #e8e8e8;
+  background: white;
+  padding: 2px;
+}
+
+.myaccount-balance-label {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #262626;
+  flex: 1;
+  text-align: left;
+}
+
+.myaccount-section {
+  margin-bottom: 24px;
+}
+
+.myaccount-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 8px 0;
+}
+
+.myaccount-menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f3f3f3;
+  cursor: pointer;
+}
+
+.menu-item-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  object-fit: contain;
+}
+
+.menu-item-label {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  flex: 1;
+  text-align: left;
+}
+
+.menu-item-badge {
+  font-family: 'Aktiv Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #f3f3f3;
+  color: #262626;
+  margin-right: 8px;
+}
+
+.menu-item-badge.red {
+  background: #e20020;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tab item button styling */
+.tab-bar button.tab-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
