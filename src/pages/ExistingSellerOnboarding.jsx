@@ -2,18 +2,18 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './ExistingSellerOnboarding.css'
 
-const imgAspectRatio = "http://localhost:3845/assets/d7765203d89d85cb74fde80801bb06f8387ecdfe.png"
-const imgAspectRatio1 = "http://localhost:3845/assets/c69550de6926a280cf49d8f29b8b919857ed44ae.png"
-const imgAspectRatio3 = "http://localhost:3845/assets/71a71cfa488bc692fa27cd770febfe05d9eef033.png"
-const imgAspectRatio4 = "http://localhost:3845/assets/4f464bc9df7ee779e9cb2c199529e3ce4ddc919f.png"
-const imgBalanceCard = "http://localhost:3845/assets/6147a6090f788a4f73c9d5b4bfaa0a0bb99999cf.png"
-const imgDepopLogo = "http://localhost:3845/assets/10e27cd9df35975d36647a167640829845109786.png"
-const imgSuccessIcon = "http://localhost:3845/assets/a1bc40f2f82df477b1f7d988c327839f452eb5b3.png"
-const imgPendingIcon = "http://localhost:3845/assets/89bd8f80a30e8a38feeab8539be5751013c770b1.png"
-const imgBalanceCardRed = "http://localhost:3845/assets/146c4a861a9a5ce443fc0abd22da6063c3821a63.svg"
-const imgVerificationIcon = "http://localhost:3845/assets/34c48ae42fe89a39eb74096aac8a6ae9b9c388af.svg"
+const imgAspectRatio = "/icons/NB_cap.png"
+const imgAspectRatio1 = "/icons/NB_trainers.jpg"
+const imgAspectRatio3 = "/icons/Marni_bag.jpg"
+const imgAspectRatio4 = "/icons/Cap.jpg"
+const imgBalanceCard = "/icons/card.png"
+const imgDepopLogo = "/icons/Logo.png"
+const imgSuccessIcon = "/icons/confirm.png"
+const imgPendingIcon = "/icons/pending.png"
+const imgBalanceCardRed = "/icons/card_view.svg"
+const imgVerificationIcon = "/icons/2FA.png"
 const imgBagProduct = "/icons/NB_cap.png"
-const imgSellerAvatar = "http://localhost:3845/assets/21d01e0ee29d02b5cb4aecc11df1c0d01b02008f.png"
+const imgSellerAvatar = "/icons/Dbug-gif 1.jpg"
 const imgDepopBalance = "/icons/Depop_Balance.jpg"
 const imgApplePay = "/icons/Apple_Pay.jpg"
 const imgAmex = "/icons/Amex.png"
@@ -147,6 +147,160 @@ function BalanceRespendModal({ isOpen, onClose, onUnlock, onNotNow }) {
         {/* Home indicator */}
         <div className="modal-home-indicator">
           <div className="home-indicator" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SuccessOnboardingModal({ isOpen, onClose, onContinue, onNotNow }) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [dragStart, setDragStart] = useState(null)
+  const [dragOffset, setDragOffset] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const carouselRef = useRef(null)
+  
+  const slides = [
+    {
+      image: imgBalanceCard,
+      label: 'Get early access',
+      title: 'Shop with your Depop Balance',
+      description: 'Be one of the first to pay with your earnings on Depop.'
+    },
+    {
+      image: '/icons/Shopping.png',
+      label: 'Get early access',
+      title: 'Turn sales into new finds',
+      description: "Sell what you're done with, and use your balance to buy what's next."
+    },
+    {
+      image: '/icons/SSN.png',
+      label: 'Get early access',
+      title: 'One more step to get started',
+      description: "To keep your payments safe, we'll ask for a quick identity check — including the last 4 digits of your SSN."
+    }
+  ]
+
+  const handleDragStart = (clientX) => {
+    setDragStart(clientX)
+    setIsDragging(true)
+  }
+
+  const handleDragMove = (clientX) => {
+    if (dragStart === null) return
+    const diff = clientX - dragStart
+    setDragOffset(diff)
+  }
+
+  const handleDragEnd = () => {
+    if (dragStart === null) return
+    
+    const threshold = 50
+    if (dragOffset < -threshold && currentSlide < slides.length - 1) {
+      setCurrentSlide(currentSlide + 1)
+    } else if (dragOffset > threshold && currentSlide > 0) {
+      setCurrentSlide(currentSlide - 1)
+    }
+    
+    setDragStart(null)
+    setDragOffset(0)
+    setIsDragging(false)
+  }
+
+  const onTouchStart = (e) => handleDragStart(e.touches[0].clientX)
+  const onTouchMove = (e) => handleDragMove(e.touches[0].clientX)
+  const onTouchEnd = () => handleDragEnd()
+
+  const onMouseDown = (e) => {
+    e.preventDefault()
+    handleDragStart(e.clientX)
+  }
+  const onMouseMove = (e) => {
+    if (isDragging) handleDragMove(e.clientX)
+  }
+  const onMouseUp = () => handleDragEnd()
+  const onMouseLeave = () => {
+    if (isDragging) handleDragEnd()
+  }
+
+  useEffect(() => {
+    if (!isOpen) {
+      setCurrentSlide(0)
+    }
+  }, [isOpen])
+
+  if (!isOpen) return null
+
+  const handleClose = () => {
+    setCurrentSlide(0)
+    onClose()
+  }
+
+  const getTransform = () => {
+    const baseOffset = currentSlide * 100
+    const carouselWidth = carouselRef.current?.offsetWidth || 375
+    const dragPercent = (dragOffset / carouselWidth) * 100
+    return `translateX(-${baseOffset - dragPercent}%)`
+  }
+
+  return (
+    <div className="onboarding-modal-wrapper">
+      <div className="onboarding-modal-overlay" onClick={handleClose} />
+      <div className="onboarding-modal-container">
+        <div className="onboarding-modal-grabber" />
+        
+        <button className="onboarding-modal-close" onClick={handleClose}>
+          <CloseIcon />
+        </button>
+
+        <div 
+          className="onboarding-carousel"
+          ref={carouselRef}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          onMouseDown={onMouseDown}
+          onMouseMove={onMouseMove}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseLeave}
+        >
+          <div 
+            className={`onboarding-slides ${isDragging ? 'dragging' : ''}`}
+            style={{ transform: getTransform() }}
+          >
+            {slides.map((slide, index) => (
+              <div className="onboarding-slide" key={index}>
+                <img 
+                  src={slide.image} 
+                  alt="" 
+                  className={`onboarding-slide-image ${index === 0 ? 'card-bounce' : ''}`} 
+                  draggable={false} 
+                />
+                <p className="onboarding-slide-label">{slide.label}</p>
+                <h2 className="onboarding-slide-title">{slide.title}</h2>
+                <p className="onboarding-slide-desc">{slide.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="onboarding-dots">
+          {slides.map((_, index) => (
+            <span 
+              key={index}
+              className={`onboarding-dot ${currentSlide === index ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
+        </div>
+
+        <button className="onboarding-btn-primary" onClick={onContinue}>
+          Unlock now
+        </button>
+        <button className="onboarding-btn-tertiary" onClick={onNotNow}>Not now</button>
+
+        <div className="onboarding-indicator">
+          <div className="onboarding-indicator-bar" />
         </div>
       </div>
     </div>
@@ -347,7 +501,12 @@ function BalanceOnboardingModal({ isOpen, onClose, onContinue, onNotNow }) {
           >
             {slides.map((slide, index) => (
               <div className="onboarding-slide" key={index}>
-                <img src={slide.image} alt="" className="onboarding-slide-image" draggable={false} />
+                <img 
+                  src={slide.image} 
+                  alt="" 
+                  className={`onboarding-slide-image ${index === 0 ? 'card-bounce' : ''}`} 
+                  draggable={false} 
+                />
                 <p className="onboarding-slide-label">{slide.label}</p>
                 <h2 className="onboarding-slide-title">{slide.title}</h2>
                 <p className="onboarding-slide-desc">{slide.description}</p>
@@ -900,8 +1059,8 @@ function DepopBalanceScreen({ onBack, onHomeClick, onMyDepopClick, pendingMode =
         {declinedMode && !pendingMode && showPromoBanner && (
           <div className="balance-promo-banner">
             <div className="promo-banner-content">
-              <p className="promo-banner-title">Turn your Depop Balance into new purchases</p>
-              <p className="promo-banner-desc">Complete verification today to unlock access.</p>
+              <p className="promo-banner-title">Turn sales into new finds</p>
+              <p className="promo-banner-desc">Tap below to verify your identity and unlock early access</p>
             </div>
             <img src="/icons/Shopping.png" alt="" className="promo-banner-image" />
             <button className="promo-banner-close" onClick={() => setShowPromoBanner(false)}>
@@ -1073,8 +1232,9 @@ function ChevronRightIcon() {
   )
 }
 
-function CheckoutScreen({ onBack, onPay, pendingMode = false, declinedMode = false, onUnlockBalance }) {
+function CheckoutScreen({ onBack, onPay, pendingMode = false, declinedMode = false, onUnlockBalance, onComplete }) {
   const [selectedPayment, setSelectedPayment] = useState((pendingMode || declinedMode) ? 'apple-pay' : 'balance')
+  const [showOrderConfirmation, setShowOrderConfirmation] = useState(false)
 
   useEffect(() => {
     if (!declinedMode && !pendingMode) {
@@ -1082,8 +1242,20 @@ function CheckoutScreen({ onBack, onPay, pendingMode = false, declinedMode = fal
     }
   }, [declinedMode, pendingMode])
 
+  const handlePay = () => {
+    if (selectedPayment === 'balance') {
+      setShowOrderConfirmation(true)
+    } else {
+      onPay()
+    }
+  }
+
   return (
     <div className="checkout-screen">
+      <OrderConfirmationModal 
+        isOpen={showOrderConfirmation} 
+        onComplete={onComplete}
+      />
       {/* Status Bar */}
       <div className="status-bar">
         <span className="status-time">09:41</span>
@@ -1172,7 +1344,7 @@ function CheckoutScreen({ onBack, onPay, pendingMode = false, declinedMode = fal
               <button className="checkout-unlock-banner" onClick={onUnlockBalance}>
                 <img src="/icons/card.png" alt="" className="unlock-banner-icon" />
                 <div className="unlock-banner-text">
-                  <p className="unlock-banner-title">Unlock paying with balance</p>
+                  <p className="unlock-banner-title">Unlock early access</p>
                   <p className="unlock-banner-desc">Verify to pay using your balance</p>
                 </div>
                 <ChevronRightIcon />
@@ -1254,13 +1426,13 @@ function CheckoutScreen({ onBack, onPay, pendingMode = false, declinedMode = fal
       {/* Bottom Section */}
       <div className="checkout-bottom">
         {selectedPayment === 'balance' ? (
-          <button className="btn-primary" onClick={onPay}>Pay with balance</button>
+          <button className="btn-primary" onClick={handlePay}>Pay with balance</button>
         ) : selectedPayment === 'apple-pay' ? (
-          <button className="btn-primary btn-apple-pay" onClick={onPay}>
-            Buy with <img src={imgApplePay} alt="Apple Pay" className="apple-pay-btn-icon" />
+          <button className="btn-primary" onClick={handlePay}>
+            Pay
           </button>
         ) : (
-          <button className="btn-primary" onClick={onPay}>Pay now</button>
+          <button className="btn-primary" onClick={handlePay}>Pay now</button>
         )}
         <p className="checkout-stripe-text">This payment will be processed by Stripe</p>
         <div className="checkout-payment-icons">
@@ -1780,8 +1952,8 @@ function NoSignupCheckoutScreen({ onBack, onPay, onComplete }) {
             Pay with balance
           </button>
         ) : selectedPayment === 'apple-pay' ? (
-          <button className="btn-primary btn-apple-pay" onClick={handlePayWithBalance}>
-            Buy with <img src={imgApplePay} alt="Apple Pay" className="apple-pay-btn-icon" />
+          <button className="btn-primary" onClick={handlePayWithBalance}>
+            Pay
           </button>
         ) : (
           <button className="btn-primary" onClick={handlePayWithBalance}>
@@ -2601,6 +2773,7 @@ function ExistingSellerOnboarding() {
             <CheckoutScreen 
               onBack={handleCheckoutBack} 
               onPay={handleCheckoutPay}
+              onComplete={handleCheckoutPay}
               pendingMode={selectedPath === 'pending' && !hasDeclinedOnboarding && !isVerified}
               declinedMode={(selectedPath !== 'pending' || hasDeclinedOnboarding) && !isVerified}
               onUnlockBalance={handleCheckoutUnlockBalance}
@@ -2675,7 +2848,7 @@ function ExistingSellerOnboarding() {
               </>
             ) : (
               <>
-                <BalanceOnboardingScrollModal 
+                <SuccessOnboardingModal 
                   isOpen={showModal} 
                   onClose={() => setShowModal(false)} 
                   onContinue={handleUnlock}
@@ -2783,19 +2956,22 @@ function ExistingSellerOnboarding() {
         )}
       </div>
 
-      {/* Back link outside mobile frame */}
-      <button 
-        className="back-link mobile-back"
-        onClick={() => {
-          setCurrentScreen('decision')
-          resetFlowState()
-        }}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        Back to overview
-      </button>
+      {/* Home button outside mobile frame - only show when not on decision screen */}
+      {currentScreen !== 'decision' && (
+        <button 
+          className="overview-home-btn"
+          onClick={() => {
+            setCurrentScreen('decision')
+            resetFlowState()
+          }}
+          title="Back to overview"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9.5L12 3L21 9.5V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9.5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M9 22V12H15V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      )}
     </div>
   )
 }
