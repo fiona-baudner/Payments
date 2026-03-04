@@ -2181,7 +2181,7 @@
   line-height: 28px;
   color: #262626;
   margin: 0 0 4px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .decision-subtitle {
@@ -2191,7 +2191,7 @@
   line-height: 20px;
   color: #747474;
   margin: 0 0 24px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .decision-section {
