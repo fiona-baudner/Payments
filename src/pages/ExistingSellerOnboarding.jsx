@@ -769,10 +769,7 @@ function FindOutMoreModal({ isOpen, onClose, onLearnMore }) {
 
         <div className="find-out-modal-content">
           <p className="find-out-modal-text">
-            We've created a help centre article that can tell you everything about how Depop Balance works and the benefits it offers to your users.
-          </p>
-          <p className="find-out-modal-text">
-            Tap below to find out more.
+            Find out how paying with Depop Balance works in our Help Centre. Tap below for the full details.
           </p>
         </div>
 
@@ -1532,7 +1529,7 @@ function SSNVerificationModal({ isOpen, onClose, onVerified, pendingMode = false
             <img src="/icons/confirm.png" alt="Verified" className="verified-icon bounce-in" />
             <h2 className="verified-title">You're verified!</h2>
             <p className="verified-subtitle">We've successfully verified your identity.</p>
-            <p className="verified-description">You're all set to start using your balance.</p>
+            <p className="verified-description">You're all set to start shopping with your balance.</p>
           </div>
           
           <div className="sheet-bottom">
@@ -2930,7 +2927,7 @@ function ExistingSellerOnboarding() {
                 <img src="/icons/confirm.png" alt="Verified" className="verified-icon bounce-in" />
                 <h2 className="verified-title">You're verified!</h2>
                 <p className="verified-subtitle">We've successfully verified your identity.</p>
-                <p className="verified-description">You're all set to start using your balance.</p>
+                <p className="verified-description">You're all set to start shopping with your balance.</p>
               </div>
               
               <div className="sheet-bottom">

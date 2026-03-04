@@ -1447,7 +1447,7 @@
 }
 
 .find-out-modal-footer {
-  padding: 8px 16px 0;
+  padding: 8px 16px;
 }
 
 .find-out-modal-footer .btn-primary {
@@ -1455,9 +1455,12 @@
 }
 
 .find-out-modal-indicator {
-  padding: 8px 16px;
+  width: 100%;
+  height: 34px;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
+  padding-bottom: 8px;
 }
 
 /* Help Centre Modal/Screen */
