@@ -7,14 +7,21 @@ import SSNConceptTest from './pages/SSNConceptTest'
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/balance-respend" element={<BalanceRespend />} />
-        <Route path="/balance-respend/existing-seller-onboarding" element={<ExistingSellerOnboarding />} />
-        <Route path="/balance-respend/ssn-concept-test" element={<SSNConceptTest />} />
-      </Routes>
-    </Layout>
+    <Routes>
+      {/* SSN Concept Test without Layout for clean user testing */}
+      <Route path="/balance-respend/ssn-concept-test" element={<SSNConceptTest />} />
+      
+      {/* All other routes with Layout */}
+      <Route path="/*" element={
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/balance-respend" element={<BalanceRespend />} />
+            <Route path="/balance-respend/existing-seller-onboarding" element={<ExistingSellerOnboarding />} />
+          </Routes>
+        </Layout>
+      } />
+    </Routes>
   )
 }
 
