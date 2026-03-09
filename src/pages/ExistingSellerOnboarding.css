@@ -2249,6 +2249,23 @@
   text-align: center;
 }
 
+.decision-card.text-only {
+  padding: 16px;
+  justify-content: center;
+  gap: 4px;
+}
+
+.decision-card.text-only .decision-card-label {
+  font-size: 14px;
+}
+
+.decision-card-option {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0066CC;
+}
+
 /* Bag Screen */
 .bag-screen {
   position: relative;
@@ -4805,3 +4822,384 @@ button.pending-flow-notnow {
   border: none;
   cursor: pointer;
 }
+
+/* Upfront Onboarding Modal (Option 1) */
+.upfront-modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.upfront-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.upfront-modal-container {
+  position: relative;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  animation: upfront-slide-up 0.3s ease-out;
+}
+
+@keyframes upfront-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.upfront-modal-grabber {
+  width: 43px;
+  height: 4px;
+  background: #E3E3E3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.upfront-modal-close {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.upfront-modal-close svg {
+  width: 16px;
+  height: 16px;
+  color: #262626;
+}
+
+.upfront-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 56px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.upfront-modal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 86px;
+}
+
+.upfront-card-image {
+  width: 173px;
+  height: 173px;
+  object-fit: contain;
+}
+
+.upfront-card-image.card-bounce {
+  animation: card-bounce 0.8s ease-out 0.3s both;
+}
+
+.upfront-modal-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upfront-modal-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.upfront-modal-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #262626;
+  margin: 0;
+}
+
+.upfront-modal-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.upfront-modal-info {
+  padding: 0;
+}
+
+.upfront-modal-info-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.upfront-modal-footer {
+  padding: 8px 16px 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.upfront-modal-btn-primary {
+  width: 100%;
+  padding: 12px 0;
+  background: #262626;
+  border: none;
+  border-radius: 22px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+  cursor: pointer;
+}
+
+.upfront-modal-btn-tertiary {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #262626;
+  cursor: pointer;
+  text-align: center;
+}
+
+.upfront-modal-indicator {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.upfront-modal-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+}
+
+/* Two-Step Onboarding Modal (Option 2) */
+.twostep-modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.twostep-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.twostep-modal-container {
+  position: relative;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  animation: twostep-slide-up 0.3s ease-out;
+}
+
+@keyframes twostep-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.twostep-modal-grabber {
+  width: 43px;
+  height: 4px;
+  background: #E3E3E3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.twostep-modal-close {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.twostep-modal-close svg {
+  width: 16px;
+  height: 16px;
+  color: #262626;
+}
+
+.twostep-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 56px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.twostep-modal-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 86px;
+}
+
+.twostep-card-image {
+  width: 173px;
+  height: 173px;
+  object-fit: contain;
+}
+
+.twostep-card-image.card-bounce {
+  animation: card-bounce 0.8s ease-out 0.3s both;
+}
+
+.twostep-card-image.fade-in {
+  animation: twostep-fade-in 0.4s ease-out both;
+}
+
+@keyframes twostep-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.twostep-modal-content.step-2 .twostep-modal-text {
+  animation: twostep-fade-in 0.4s ease-out 0.1s both;
+}
+
+.twostep-modal-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.twostep-modal-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #262626;
+  margin: 0;
+}
+
+.twostep-modal-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #262626;
+  margin: 0;
+}
+
+.twostep-modal-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin: 0;
+}
+
+.twostep-modal-footer {
+  padding: 8px 16px 0;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.twostep-modal-btn-primary {
+  width: 100%;
+  padding: 12px 0;
+  background: #262626;
+  border: none;
+  border-radius: 22px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  color: white;
+  cursor: pointer;
+}
+
+.twostep-modal-btn-tertiary {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #262626;
+  cursor: pointer;
+  text-align: center;
+}
+
+.twostep-modal-indicator {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.twostep-modal-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+}
+

@@ -307,6 +307,135 @@ function SuccessOnboardingModal({ isOpen, onClose, onContinue, onNotNow }) {
   )
 }
 
+function UpfrontOnboardingModal({ isOpen, onClose, onGetAccess, onNotNow }) {
+  if (!isOpen) return null
+
+  return (
+    <div className="upfront-modal-wrapper">
+      <div className="upfront-modal-overlay" onClick={onClose} />
+      <div className="upfront-modal-container">
+        <div className="upfront-modal-grabber" />
+        
+        <button className="upfront-modal-close" onClick={onClose}>
+          <CloseIcon />
+        </button>
+
+        <div className="upfront-modal-content">
+          <div className="upfront-modal-image">
+            <img src={imgBalanceCard} alt="Depop Balance Card" className="upfront-card-image card-bounce" />
+          </div>
+
+          <div className="upfront-modal-text">
+            <p className="upfront-modal-label">You're invited</p>
+            <h1 className="upfront-modal-title">Shop with your Depop Balance</h1>
+            <p className="upfront-modal-desc">
+              Be one of the first to pay for new finds using the money you make from sales.
+            </p>
+          </div>
+
+          <div className="upfront-modal-info">
+            <p className="upfront-modal-info-text">
+              To access this, we'll ask for a quick identity check - including the last 4 digits of your SSN.
+            </p>
+          </div>
+        </div>
+
+        <div className="upfront-modal-footer">
+          <button className="upfront-modal-btn-primary" onClick={onGetAccess}>Get access</button>
+          <button className="upfront-modal-btn-tertiary" onClick={onNotNow}>Not now</button>
+        </div>
+
+        <div className="upfront-modal-indicator">
+          <div className="upfront-modal-indicator-bar" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function TwoStepOnboardingModal({ isOpen, onClose, onContinueToVerify, onNotNow, onLearnMore }) {
+  const [currentStep, setCurrentStep] = useState(1)
+
+  useEffect(() => {
+    if (!isOpen) {
+      setCurrentStep(1)
+    }
+  }, [isOpen])
+
+  if (!isOpen) return null
+
+  const handleUnlockNow = () => {
+    setCurrentStep(2)
+  }
+
+  const handleContinueToVerify = () => {
+    onContinueToVerify()
+  }
+
+  return (
+    <div className="twostep-modal-wrapper">
+      <div className="twostep-modal-overlay" onClick={onClose} />
+      <div className="twostep-modal-container">
+        <div className="twostep-modal-grabber" />
+        
+        <button className="twostep-modal-close" onClick={onClose}>
+          <CloseIcon />
+        </button>
+
+        <div className={`twostep-modal-content ${currentStep === 2 ? 'step-2' : ''}`}>
+          {currentStep === 1 ? (
+            <>
+              <div className="twostep-modal-image">
+                <img src={imgBalanceCard} alt="Depop Balance Card" className="twostep-card-image card-bounce" />
+              </div>
+
+              <div className="twostep-modal-text">
+                <p className="twostep-modal-label">Early access</p>
+                <h1 className="twostep-modal-title">Be first to shop with your Balance</h1>
+                <p className="twostep-modal-desc">
+                  Use the money you make from your sales on Depop to buy what's next — before anyone else.
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="twostep-modal-image">
+                <img src="/icons/SSN.png" alt="SSN Verification" className="twostep-card-image fade-in" />
+              </div>
+
+              <div className="twostep-modal-text">
+                <p className="twostep-modal-label">Quick verification</p>
+                <h1 className="twostep-modal-title">Verify your identity to unlock</h1>
+                <p className="twostep-modal-desc">
+                  In the next step, we'll ask you for the last 4 digits of your SSN to confirm it's really you.
+                </p>
+              </div>
+            </>
+          )}
+        </div>
+
+        <div className="twostep-modal-footer">
+          {currentStep === 1 ? (
+            <>
+              <button className="twostep-modal-btn-primary" onClick={handleUnlockNow}>Unlock now</button>
+              <button className="twostep-modal-btn-tertiary" onClick={onNotNow}>Not now</button>
+            </>
+          ) : (
+            <>
+              <button className="twostep-modal-btn-primary" onClick={handleContinueToVerify}>Continue to verify</button>
+              <button className="twostep-modal-btn-tertiary" onClick={onLearnMore}>Learn more</button>
+            </>
+          )}
+        </div>
+
+        <div className="twostep-modal-indicator">
+          <div className="twostep-modal-indicator-bar" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function BalanceOnboardingScrollModal({ isOpen, onClose, onContinue, onNotNow }) {
   const bullets = [
     {
@@ -2505,6 +2634,21 @@ function DecisionScreen({ onSelectPath }) {
           </button>
         </div>
       </div>
+
+      {/* Onboarding Screen Test Section */}
+      <div className="decision-section">
+        <h2 className="decision-section-title">Onboarding screen test</h2>
+        <div className="decision-cards">
+          <button className="decision-card text-only" onClick={() => onSelectPath('onboarding-upfront')}>
+            <span className="decision-card-option">Option 1</span>
+            <span className="decision-card-label">Everything upfront</span>
+          </button>
+          <button className="decision-card text-only" onClick={() => onSelectPath('onboarding-2step')}>
+            <span className="decision-card-option">Option 2</span>
+            <span className="decision-card-label">2 Step</span>
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
@@ -2524,15 +2668,27 @@ function ExistingSellerOnboarding() {
   const [hasCompletedOnboarding, setHasCompletedOnboarding] = useState(false)
   const [hasDeclinedOnboarding, setHasDeclinedOnboarding] = useState(false)
   const [previousScreen, setPreviousScreen] = useState(null)
+  const [showUpfrontModal, setShowUpfrontModal] = useState(false)
+  const [showUpfrontSSNSheet, setShowUpfrontSSNSheet] = useState(false)
+  const [showTwoStepModal, setShowTwoStepModal] = useState(false)
+  const [showTwoStepSSNSheet, setShowTwoStepSSNSheet] = useState(false)
 
   useEffect(() => {
     if (currentScreen === 'home' && !showToast && !hasCompletedOnboarding && !isVerified && !isPendingVerification) {
+      // Different delay based on path
+      const delay = (selectedPath === 'onboarding-upfront' || selectedPath === 'onboarding-2step') ? 2000 : 3000
       const timer = setTimeout(() => {
-        setShowModal(true)
-      }, 3000)
+        if (selectedPath === 'onboarding-upfront') {
+          setShowUpfrontModal(true)
+        } else if (selectedPath === 'onboarding-2step') {
+          setShowTwoStepModal(true)
+        } else {
+          setShowModal(true)
+        }
+      }, delay)
       return () => clearTimeout(timer)
     }
-  }, [currentScreen, showToast, hasCompletedOnboarding, isVerified, isPendingVerification])
+  }, [currentScreen, showToast, hasCompletedOnboarding, isVerified, isPendingVerification, selectedPath])
 
   useEffect(() => {
     if (showToast) {
@@ -2622,6 +2778,43 @@ function ExistingSellerOnboarding() {
     // Stay on home screen - verification confirmation shown in modal
   }
 
+  const handleUpfrontGetAccess = () => {
+    setShowUpfrontModal(false)
+    setShowUpfrontSSNSheet(true)
+  }
+
+  const handleUpfrontNotNow = () => {
+    setShowUpfrontModal(false)
+    setCurrentScreen('decline-reasons')
+  }
+
+  const handleUpfrontSSNVerified = () => {
+    setShowUpfrontSSNSheet(false)
+    setIsVerified(true)
+    setHasCompletedOnboarding(true)
+  }
+
+  const handleTwoStepContinueToVerify = () => {
+    setShowTwoStepModal(false)
+    setShowTwoStepSSNSheet(true)
+  }
+
+  const handleTwoStepNotNow = () => {
+    setShowTwoStepModal(false)
+    setCurrentScreen('decline-reasons')
+  }
+
+  const handleTwoStepLearnMore = () => {
+    // For now, this could open a help modal or link
+    // Keeping as placeholder for future implementation
+  }
+
+  const handleTwoStepSSNVerified = () => {
+    setShowTwoStepSSNSheet(false)
+    setHasCompletedOnboarding(true)
+    setIsPendingVerification(true)
+  }
+
   const handleDiscover = () => {
     setCurrentScreen('home')
   }
@@ -2646,6 +2839,10 @@ function ExistingSellerOnboarding() {
 
   const resetFlowState = () => {
     setShowModal(false)
+    setShowUpfrontModal(false)
+    setShowUpfrontSSNSheet(false)
+    setShowTwoStepModal(false)
+    setShowTwoStepSSNSheet(false)
     setSelectedPath(null)
     setHasCompletedOnboarding(false)
     setHasDeclinedOnboarding(false)
@@ -2680,12 +2877,20 @@ function ExistingSellerOnboarding() {
 
   const handleDeclineBack = () => {
     setCurrentScreen('home')
-    setShowModal(true)
+    if (selectedPath === 'onboarding-upfront') {
+      setShowUpfrontModal(true)
+    } else if (selectedPath === 'onboarding-2step') {
+      setShowTwoStepModal(true)
+    } else {
+      setShowModal(true)
+    }
   }
 
   const handleDeclineConfirm = () => {
     setCurrentScreen('home')
     setShowModal(false)
+    setShowUpfrontModal(false)
+    setShowTwoStepModal(false)
     setShowToast(true)
     setHasDeclinedOnboarding(true)
     setHasCompletedOnboarding(true)
@@ -2693,7 +2898,13 @@ function ExistingSellerOnboarding() {
 
   const handleDeclineChangedMind = () => {
     setCurrentScreen('home')
-    setShowModal(true)
+    if (selectedPath === 'onboarding-upfront') {
+      setShowUpfrontModal(true)
+    } else if (selectedPath === 'onboarding-2step') {
+      setShowTwoStepModal(true)
+    } else {
+      setShowModal(true)
+    }
   }
 
   const handleBalanceBack = () => {
@@ -2828,7 +3039,37 @@ function ExistingSellerOnboarding() {
           <SSNVerificationScreen onBack={handleBackToHome} onComplete={handleSSNComplete} />
         ) : (
           <>
-            {selectedPath === 'pending' ? (
+            {selectedPath === 'onboarding-upfront' ? (
+              <>
+                <UpfrontOnboardingModal 
+                  isOpen={showUpfrontModal} 
+                  onClose={() => setShowUpfrontModal(false)} 
+                  onGetAccess={handleUpfrontGetAccess}
+                  onNotNow={handleUpfrontNotNow}
+                />
+                <SSNVerificationModal 
+                  isOpen={showUpfrontSSNSheet} 
+                  onClose={() => setShowUpfrontSSNSheet(false)}
+                  onVerified={handleUpfrontSSNVerified}
+                />
+              </>
+            ) : selectedPath === 'onboarding-2step' ? (
+              <>
+                <TwoStepOnboardingModal 
+                  isOpen={showTwoStepModal} 
+                  onClose={() => setShowTwoStepModal(false)} 
+                  onContinueToVerify={handleTwoStepContinueToVerify}
+                  onNotNow={handleTwoStepNotNow}
+                  onLearnMore={handleTwoStepLearnMore}
+                />
+                <SSNVerificationModal 
+                  isOpen={showTwoStepSSNSheet} 
+                  onClose={() => setShowTwoStepSSNSheet(false)}
+                  onVerified={handleTwoStepSSNVerified}
+                  pendingMode={true}
+                />
+              </>
+            ) : selectedPath === 'pending' ? (
               <>
                 <BalanceOnboardingModal 
                   isOpen={showModal} 

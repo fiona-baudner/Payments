@@ -233,6 +233,17 @@ body {
   font-size: 1.1rem;
 }
 
+.subpage-section {
+  margin-top: 2.5rem;
+}
+
+.subpage-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
 .subpage-content {
   background: var(--color-surface);
   border: 1px solid var(--color-border);

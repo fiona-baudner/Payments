@@ -41,6 +41,20 @@ function BalanceRespend() {
           />
         ))}
       </div>
+
+      <div className="subpage-section">
+        <h2 className="subpage-section-title">SSN concept test</h2>
+        <div className="prototypes-grid">
+          <PrototypeCard
+            title="Prototype1: Tension build"
+            description="SSN verification with instant success confirmation."
+            icon="✅"
+            to="/balance-respend/ssn-concept-test"
+            accentColor="#10b981"
+            accentColorEnd="#06b6d4"
+          />
+        </div>
+      </div>
     </div>
   )
 }
