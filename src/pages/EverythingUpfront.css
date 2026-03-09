@@ -1,0 +1,1211 @@
+.ssn-concept-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.ssn-back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  color: transparent;
+  text-decoration: none;
+  z-index: 100;
+  opacity: 0;
+  cursor: default;
+}
+
+.ssn-back-btn:hover {
+  opacity: 0.3;
+  background: rgba(255, 255, 255, 0.5);
+  color: #262626;
+  cursor: pointer;
+}
+
+.ssn-mobile-frame {
+  width: 375px;
+  height: 780px;
+  background: #1a1a1a;
+  border-radius: 52px;
+  padding: 10px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 2px #333,
+    inset 0 0 0 4px #1a1a1a;
+  position: relative;
+}
+
+/* iPhone buttons */
+.ssn-mobile-frame::before {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 155px;
+  width: 3px;
+  height: 85px;
+  background: #333;
+  border-radius: 0 3px 3px 0;
+}
+
+.ssn-mobile-frame::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 120px;
+  width: 3px;
+  height: 32px;
+  background: #333;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 44px 0 #333, 0 80px 0 #333;
+}
+
+.ssn-mobile-notch {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 30px;
+  background: black;
+  border-radius: 17px;
+  z-index: 1000;
+}
+
+.ssn-mobile-screen {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 42px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Home Screen */
+.ssn-home-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  overflow: hidden;
+}
+
+/* Status Bar */
+.ssn-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 10px;
+}
+
+.ssn-status-time {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #262626;
+}
+
+.ssn-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Search Bar */
+.ssn-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px 8px;
+}
+
+.ssn-search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f3f3;
+  border-radius: 22px;
+  padding: 10px 12px;
+}
+
+.ssn-search-placeholder {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #43484d;
+}
+
+.ssn-header-icon {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #262626;
+  position: relative;
+}
+
+.ssn-bag-icon {
+  position: relative;
+}
+
+.ssn-bag-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: #e20020;
+  color: white;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 10px;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* Section Header */
+.ssn-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 12px 8px;
+}
+
+.ssn-section-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-see-all-btn {
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #3d37bd;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Product Grid */
+.ssn-product-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 8px 12px;
+  overflow-y: auto;
+}
+
+.ssn-product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ssn-product-image-container {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.ssn-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ssn-like-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 4px;
+}
+
+.ssn-like-button svg {
+  width: 14px;
+  height: 14px;
+  color: #262626;
+}
+
+.ssn-like-count {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 8px;
+  color: #262626;
+  margin-top: -2px;
+}
+
+.ssn-product-details {
+  padding: 8px 0;
+}
+
+.ssn-product-brand {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-product-size {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-product-price-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.ssn-product-price {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #262626;
+}
+
+.ssn-product-original-price {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #747474;
+  text-decoration: line-through;
+}
+
+/* Bottom Tab Bar */
+.ssn-tab-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 16px 0;
+  border-top: 1px solid #e3e3e3;
+  background: white;
+}
+
+.ssn-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #262626;
+  padding: 0 4px;
+}
+
+.ssn-tab-item span {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 10px;
+}
+
+.ssn-tab-item.active {
+  color: #262626;
+}
+
+.ssn-tab-item.active span {
+  font-weight: 700;
+}
+
+.ssn-tab-item:not(.active) {
+  color: #262626;
+}
+
+.ssn-tab-item:not(.active) svg {
+  opacity: 0.7;
+}
+
+/* Home Indicator */
+.ssn-home-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+  margin: 8px auto 8px;
+}
+
+/* Intro Splash Screen */
+.ssn-intro-splash {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  animation: ssn-fade-in 0.3s ease-out;
+}
+
+@keyframes ssn-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ssn-intro-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px 10px;
+  padding-top: 14px;
+}
+
+.ssn-intro-time {
+  font-family: 'SF Pro Text', -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #262626;
+}
+
+.ssn-intro-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ssn-intro-close {
+  position: absolute;
+  top: 56px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ssn-intro-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.ssn-intro-card-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ssn-intro-text-wrapper {
+  padding-bottom: 16px;
+}
+
+.ssn-intro-card-image {
+  width: 173px;
+  height: 173px;
+  object-fit: contain;
+  animation: ssn-card-float 0.8s ease-out 0.2s both;
+}
+
+@keyframes ssn-card-float {
+  0% { 
+    transform: scale(0.9) rotate(-5deg); 
+    opacity: 0; 
+  }
+  100% { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 1; 
+  }
+}
+
+.ssn-intro-text {
+  padding: 32px 0 16px;
+}
+
+.ssn-intro-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0 0 4px;
+}
+
+.ssn-intro-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.375;
+  color: #262626;
+  margin: 0 0 12px;
+}
+
+.ssn-intro-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-intro-footer {
+  padding: 8px 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ssn-intro-btn-primary {
+  width: 100%;
+  padding: 14px 0;
+  background: #262626;
+  border: none;
+  border-radius: 24px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.ssn-intro-btn-tertiary {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  text-align: center;
+}
+
+.ssn-intro-indicator {
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ssn-intro-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+}
+
+/* Verify Identity Sheet */
+.ssn-verify-sheet-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.ssn-verify-sheet-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.ssn-verify-sheet-container {
+  position: relative;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  animation: ssn-sheet-slide-up 0.3s ease-out;
+}
+
+@keyframes ssn-sheet-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.ssn-verify-sheet-grabber {
+  width: 43px;
+  height: 4px;
+  background: #E3E3E3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.ssn-verify-sheet-close {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #262626;
+}
+
+.ssn-verify-sheet-content {
+  padding: 48px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ssn-verify-sheet-image {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 24px;
+}
+
+.ssn-verify-padlock {
+  width: 173px;
+  height: 173px;
+  object-fit: contain;
+}
+
+.ssn-verify-sheet-text {
+  text-align: left;
+  width: 100%;
+}
+
+.ssn-verify-sheet-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33;
+  color: #262626;
+  margin: 0 0 8px;
+}
+
+.ssn-verify-sheet-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #262626;
+  margin: 0;
+}
+
+.ssn-verify-sheet-footer {
+  padding: 8px 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ssn-verify-sheet-btn-primary {
+  width: 100%;
+  padding: 14px 0;
+  background: #262626;
+  border: none;
+  border-radius: 22px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.ssn-verify-sheet-btn-tertiary {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  cursor: pointer;
+  text-align: center;
+}
+
+.ssn-verify-sheet-indicator {
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ssn-verify-sheet-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+}
+
+/* SSN Verification Sheet */
+.ssn-sheet-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 42px;
+}
+
+.ssn-sheet-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 42px;
+}
+
+.ssn-sheet-container {
+  position: relative;
+  background: white;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 95%;
+  animation: ssn-modal-slide-up 0.3s ease-out;
+}
+
+.ssn-sheet-grabber {
+  width: 43px;
+  height: 4px;
+  background: #E3E3E3;
+  border-radius: 10px;
+  margin: 8px auto 0;
+}
+
+.ssn-sheet-close {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #262626;
+}
+
+.ssn-sheet-back {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.ssn-sheet-content {
+  padding: 56px 16px 24px;
+}
+
+.ssn-sheet-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #262626;
+  margin: 0 0 8px;
+}
+
+.ssn-sheet-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  margin: 0 0 24px;
+}
+
+.ssn-sheet-input-field {
+  width: 100%;
+  height: 56px;
+  background: white;
+  border: 1px solid #747474;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ssn-sheet-input-field.focused {
+  border-color: #262626;
+  border-width: 2px;
+}
+
+.ssn-sheet-input-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ssn-sheet-floating-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #747474;
+}
+
+.ssn-sheet-input-value {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #262626;
+}
+
+.ssn-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.ssn-sheet-input-placeholder {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #747474;
+}
+
+.ssn-sheet-help-link {
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 24px;
+  padding: 0;
+}
+
+.ssn-sheet-encryption {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #262626;
+  margin: 8px 0 0;
+}
+
+.ssn-sheet-encryption-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ssn-sheet-bottom {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ssn-sheet-legal {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #43484D;
+  text-align: center;
+  margin: 0;
+}
+
+.ssn-sheet-legal .underline {
+  text-decoration: underline;
+}
+
+.ssn-sheet-btn-primary {
+  width: 100%;
+  padding: 14px 0;
+  background: #262626;
+  border: none;
+  border-radius: 24px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+
+.ssn-sheet-btn-primary.disabled {
+  background: #E3E3E3;
+  color: #747474;
+  cursor: not-allowed;
+}
+
+.ssn-sheet-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 8px 16px 0;
+  background: white;
+}
+
+.ssn-keypad-key {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 24px;
+  color: #262626;
+  cursor: pointer;
+}
+
+.ssn-keypad-key:active {
+  background: #f3f3f3;
+  border-radius: 8px;
+}
+
+.ssn-keypad-key.empty {
+  cursor: default;
+}
+
+.ssn-keypad-key.delete svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ssn-sheet-indicator {
+  padding: 8px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.ssn-sheet-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 100px;
+}
+
+/* Success State */
+.ssn-sheet-success-content {
+  padding: 80px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ssn-sheet-success-icon {
+  margin-bottom: 24px;
+}
+
+.ssn-sheet-success-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #262626;
+  margin: 0 0 12px;
+}
+
+.ssn-sheet-success-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.ssn-sheet-footer {
+  padding: 16px;
+}
+
+/* Verifying Overlay */
+.ssn-verifying-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 20px 20px 0 0;
+}
+
+.ssn-verifying-logo {
+  margin-bottom: 16px;
+  perspective: 400px;
+}
+
+.ssn-verifying-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: ssn-coin-flip 1.5s ease-in-out infinite;
+}
+
+@keyframes ssn-coin-flip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.ssn-verifying-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+/* Success screen confirm image */
+.ssn-confirm-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: ssn-confirm-bounce 0.6s ease-out;
+}
+
+@keyframes ssn-confirm-bounce {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Help Centre Modal */
+.ssn-help-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 1200;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  animation: ssn-fade-in 0.2s ease-out;
+}
+
+.ssn-help-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e3e3e3;
+  min-height: 44px;
+}
+
+.ssn-help-back,
+.ssn-help-close {
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.ssn-help-header-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+}
+
+.ssn-help-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.ssn-help-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.ssn-help-logo-depop {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #e20020;
+}
+
+.ssn-help-logo-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #262626;
+}
+
+.ssn-help-search {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.ssn-help-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #747474;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.ssn-help-breadcrumb-arrow {
+  color: #747474;
+}
+
+.ssn-help-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #262626;
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.ssn-help-intro {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.ssn-help-faq {
+  margin-bottom: 32px;
+}
+
+.ssn-help-list {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  line-height: 1.6;
+  margin: 8px 0 16px;
+  padding-left: 20px;
+}
+
+.ssn-help-list li {
+  margin-bottom: 6px;
+}
+
+.ssn-help-faq-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  margin: 24px 0 8px;
+}
+
+.ssn-help-faq-title:first-child {
+  margin-top: 0;
+}
+
+.ssn-help-faq-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.ssn-help-related {
+  padding-top: 24px;
+  border-top: 1px solid #e3e3e3;
+  margin-bottom: 24px;
+}
+
+.ssn-help-related-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 16px;
+}
+
+.ssn-help-related-link {
+  display: block;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  text-decoration: underline;
+  margin-bottom: 12px;
+}
+
+.ssn-help-footer-section {
+  padding: 24px 0;
+  border-top: 1px solid #e3e3e3;
+  background: #f8f8f8;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.ssn-help-footer-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 16px;
+}
+
+.ssn-help-contact-btn {
+  width: 100%;
+  padding: 14px 0;
+  background: #262626;
+  border: none;
+  border-radius: 22px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}

@@ -53,6 +53,14 @@ function BalanceRespend() {
             accentColor="#10b981"
             accentColorEnd="#06b6d4"
           />
+          <PrototypeCard
+            title="Prototype2: Everything up front"
+            description="SSN verification with all info presented upfront."
+            icon="📋"
+            to="/balance-respend/everything-upfront"
+            accentColor="#8b5cf6"
+            accentColorEnd="#a855f7"
+          />
         </div>
       </div>
     </div>

@@ -4,12 +4,14 @@ import Dashboard from './pages/Dashboard'
 import BalanceRespend from './pages/BalanceRespend'
 import ExistingSellerOnboarding from './pages/ExistingSellerOnboarding'
 import SSNConceptTest from './pages/SSNConceptTest'
+import EverythingUpfront from './pages/EverythingUpfront'
 
 function App() {
   return (
     <Routes>
-      {/* SSN Concept Test without Layout for clean user testing */}
+      {/* Prototype pages without Layout for clean user testing */}
       <Route path="/balance-respend/ssn-concept-test" element={<SSNConceptTest />} />
+      <Route path="/balance-respend/everything-upfront" element={<EverythingUpfront />} />
       
       {/* All other routes with Layout */}
       <Route path="/*" element={
