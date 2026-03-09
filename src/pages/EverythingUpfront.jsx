@@ -148,8 +148,20 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
           
           <div className="upfront-success-content">
             <div className="upfront-unlock-animation">
-              <div className="upfront-unlock-glow" />
-              <img src="/icons/SSN.png" alt="Unlocked" className="upfront-lock-opening" />
+              <img src="/icons/SSN.png" alt="Lock" className="upfront-lock-fade-out" />
+              <div className="upfront-unlocked-icon">
+                <svg width="80" height="100" viewBox="0 0 80 100" fill="none">
+                  {/* Lock body */}
+                  <rect x="10" y="45" width="60" height="45" rx="8" fill="#F5A623"/>
+                  <rect x="15" y="50" width="50" height="35" rx="5" fill="#D4920C"/>
+                  {/* Keyhole */}
+                  <circle cx="40" cy="65" r="8" fill="#8B6914"/>
+                  <rect x="36" y="65" width="8" height="12" fill="#8B6914"/>
+                  {/* Shackle - open position */}
+                  <path d="M20 50 L20 30 C20 15 30 5 40 5" stroke="#A0A0A0" strokeWidth="8" strokeLinecap="round" fill="none" className="upfront-shackle"/>
+                  <path d="M60 50 L60 30 C60 15 50 5 40 5" stroke="#C0C0C0" strokeWidth="8" strokeLinecap="round" fill="none" className="upfront-shackle-open"/>
+                </svg>
+              </div>
             </div>
             <h2 className="upfront-success-title">You're verified!</h2>
             <p className="upfront-success-desc">Your balance should be ready to spend within an hour. We'll notify you when it's good to go.</p>
