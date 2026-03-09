@@ -9,10 +9,10 @@ const imgProduct3 = '/icons/Marni_bag.jpg'
 const imgProduct4 = '/icons/Cap.jpg'
 
 const products = [
-  { id: 1, image: imgProduct1, brand: 'Other', size: 'L', price: '$12.50', originalPrice: null, likes: 3 },
-  { id: 2, image: imgProduct2, brand: 'Carhartt', size: 'M', price: '$25', originalPrice: '$30', likes: 3 },
-  { id: 3, image: imgProduct3, brand: 'Other', size: 'S', price: '$45', originalPrice: null, likes: 3 },
-  { id: 4, image: imgProduct4, brand: 'New Balance', size: 'US 7', price: '$89', originalPrice: null, likes: 3 },
+  { id: 1, image: imgProduct1, brand: 'New Balance', size: 'Unisex', price: '$12.50', originalPrice: null, likes: 3 },
+  { id: 2, image: imgProduct2, brand: 'New Balance', size: 'US8', price: '$25', originalPrice: '$30', likes: 3 },
+  { id: 3, image: imgProduct3, brand: 'Marni', size: 'Unisex', price: '$45', originalPrice: null, likes: 3 },
+  { id: 4, image: imgProduct4, brand: 'Aime Leon Dore', size: 'Unisex', price: '$89', originalPrice: null, likes: 3 },
 ]
 
 function CloseIcon() {
