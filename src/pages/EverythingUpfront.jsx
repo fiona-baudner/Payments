@@ -148,10 +148,8 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
           
           <div className="upfront-success-content">
             <div className="upfront-unlock-animation">
-              {/* Bottom part of lock (stays in place) */}
-              <img src="/icons/SSN.png" alt="Lock" className="upfront-lock-body" />
-              {/* Top part of lock (shackle area - animates up) */}
-              <img src="/icons/SSN.png" alt="Lock" className="upfront-lock-shackle" />
+              <img src="/icons/SSN.png" alt="Lock" className="upfront-lock-fade" />
+              <img src="/icons/SSN_unlocked.png" alt="Unlocked" className="upfront-lock-unlocked" />
             </div>
             <h2 className="upfront-success-title">You're verified!</h2>
             <p className="upfront-success-desc">Your balance should be ready to spend within an hour. We'll notify you when it's good to go.</p>
