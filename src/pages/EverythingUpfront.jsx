@@ -83,49 +83,214 @@ function ProductCard({ product }) {
   )
 }
 
-function IntroSplashScreen({ isOpen, onClose, onContinue, onSkip }) {
+function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnMore }) {
+  const [step, setStep] = useState(1)
+  const [inputValue, setInputValue] = useState('')
+  const [isInputFocused, setIsInputFocused] = useState(false)
+  const [isVerifying, setIsVerifying] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  useEffect(() => {
+    if (!isOpen) {
+      setStep(1)
+      setInputValue('')
+      setIsInputFocused(false)
+      setIsVerifying(false)
+      setShowSuccess(false)
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
+
+  const handleUnlock = () => {
+    setStep(2)
+  }
+
+  const handleKeyPress = (key) => {
+    if (key === 'delete') {
+      setInputValue(prev => prev.slice(0, -1))
+    } else if (inputValue.length < 4 && /^[0-9]$/.test(key)) {
+      setInputValue(prev => prev + key)
+    }
+  }
+
+  const handleInputClick = () => {
+    setIsInputFocused(true)
+  }
+
+  const handleVerify = () => {
+    if (inputValue.length === 4) {
+      setIsVerifying(true)
+      setTimeout(() => {
+        setIsVerifying(false)
+        setShowSuccess(true)
+      }, 2000)
+    }
+  }
+
+  const handleDone = () => {
+    onVerified()
+    onClose()
+  }
+
+  const hasValue = inputValue.length === 4
+
+  // Success state
+  if (showSuccess) {
+    return (
+      <div className="upfront-intro-wrapper">
+        <div className="upfront-intro-overlay" onClick={onClose} />
+        <div className="upfront-intro-sheet">
+          <div className="upfront-intro-grabber" />
+          <button className="upfront-intro-close" onClick={onClose}>
+            <CloseIcon />
+          </button>
+          
+          <div className="upfront-success-content">
+            <div className="upfront-success-icon">
+              <img src="/icons/confirm.png" alt="Verified" className="upfront-confirm-img" />
+            </div>
+            <h2 className="upfront-success-title">You're verified!</h2>
+            <p className="upfront-success-desc">Your balance should be ready to spend within an hour. We'll notify you when it's good to go.</p>
+          </div>
+          
+          <div className="upfront-intro-footer">
+            <button className="upfront-intro-btn-primary" onClick={handleDone}>Done</button>
+            <div className="upfront-intro-indicator">
+              <div className="upfront-intro-indicator-bar" />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="upfront-intro-wrapper">
       <div className="upfront-intro-overlay" onClick={onClose} />
-      <div className="upfront-intro-sheet">
+      <div className={`upfront-intro-sheet ${step === 2 && isInputFocused ? 'keyboard-active' : ''}`}>
         <div className="upfront-intro-grabber" />
         <button className="upfront-intro-close" onClick={onClose}>
           <CloseIcon />
         </button>
 
-        {/* Content */}
-        <div className="upfront-intro-content">
-          <div className="upfront-intro-card-container">
-            <img 
-              src={imgBalanceCard} 
-              alt="Depop Balance Card" 
-              className="upfront-intro-card-image"
-            />
+        {isVerifying && (
+          <div className="upfront-verifying-overlay">
+            <div className="upfront-verifying-logo">
+              <img src="/icons/Dbug.jpg" alt="Depop" className="upfront-verifying-image" />
+            </div>
+            <p className="upfront-verifying-text">Verifying...</p>
           </div>
+        )}
 
-          <div className="upfront-intro-text">
-            <p className="upfront-intro-label">Get early access</p>
-            <h1 className="upfront-intro-title">Shop with your Depop Balance</h1>
-            <p className="upfront-intro-desc">
-              Unlock today with a quick identity check, and use your earnings to fund new finds.
-            </p>
-          </div>
-        </div>
+        {/* Step 1: Intro */}
+        {step === 1 && (
+          <>
+            <div className="upfront-intro-content">
+              <div className="upfront-intro-card-container">
+                <img 
+                  src={imgBalanceCard} 
+                  alt="Depop Balance Card" 
+                  className="upfront-intro-card-image"
+                />
+              </div>
 
-        {/* Footer */}
-        <div className="upfront-intro-footer">
-          <button className="upfront-intro-btn-primary" onClick={onContinue}>
-            Unlock now
-          </button>
-          <button className="upfront-intro-btn-tertiary" onClick={onSkip}>
-            Skip for now
-          </button>
-          <div className="upfront-intro-indicator">
-            <div className="upfront-intro-indicator-bar" />
-          </div>
-        </div>
+              <div className="upfront-intro-text">
+                <p className="upfront-intro-label">Get early access</p>
+                <h1 className="upfront-intro-title">Shop with your Depop Balance</h1>
+                <p className="upfront-intro-desc">
+                  Unlock today with a quick identity check, and use your earnings to fund new finds.
+                </p>
+              </div>
+            </div>
+
+            <div className="upfront-intro-footer">
+              <button className="upfront-intro-btn-primary" onClick={handleUnlock}>
+                Unlock now
+              </button>
+              <button className="upfront-intro-btn-tertiary" onClick={onSkip}>
+                Skip for now
+              </button>
+              <div className="upfront-intro-indicator">
+                <div className="upfront-intro-indicator-bar" />
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Step 2: SSN Collection */}
+        {step === 2 && (
+          <>
+            <div className={`upfront-ssn-step-content ${isInputFocused ? 'keyboard-active' : ''}`}>
+              <div className={`upfront-ssn-step-image ${isInputFocused ? 'hidden' : ''}`}>
+                <img src="/icons/SSN.png" alt="SSN Verification" className="upfront-padlock-img" />
+              </div>
+
+              <h2 className="upfront-ssn-step-title">Verify your identity to unlock</h2>
+              <p className="upfront-ssn-step-subtitle">Please enter the last 4 digits of your Social Security Number.</p>
+              
+              <button 
+                className={`upfront-ssn-step-input ${isInputFocused ? 'focused' : ''}`}
+                onClick={handleInputClick}
+              >
+                <LockIcon />
+                <div className="upfront-ssn-step-input-content">
+                  {isInputFocused ? (
+                    <>
+                      <span className="upfront-ssn-step-floating-label">Last 4 digits of your SSN</span>
+                      <span className="upfront-ssn-step-input-value">
+                        XXX-XX-{inputValue}<span className="upfront-cursor">|</span>
+                      </span>
+                    </>
+                  ) : (
+                    <span className="upfront-ssn-step-placeholder">Last 4 digits of your SSN</span>
+                  )}
+                </div>
+              </button>
+
+              <p className="upfront-ssn-step-encryption">
+                Your SSN is secured with AES-256 encryption, and never stored or shared. <button className="upfront-ssn-step-link" onClick={onLearnMore}>Learn more</button>
+              </p>
+            </div>
+
+            <div className={`upfront-ssn-step-bottom ${isInputFocused ? 'keyboard-open' : ''}`}>
+              <button 
+                className={`upfront-intro-btn-primary ${!hasValue ? 'disabled' : ''}`}
+                onClick={handleVerify}
+                disabled={!hasValue}
+              >
+                Verify
+              </button>
+              <p className="upfront-ssn-step-legal">
+                By continuing you agree to our payment partner's <span className="underline">Connect</span>, <span className="underline">Treasury</span> and <span className="underline">Service Agreements</span>
+              </p>
+            </div>
+
+            {isInputFocused && (
+              <div className="upfront-ssn-step-keypad">
+                {['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'delete'].map((key) => (
+                  <button
+                    key={key}
+                    className={`upfront-keypad-btn ${key === '' ? 'empty' : ''} ${key === 'delete' ? 'delete' : ''}`}
+                    onClick={() => key && handleKeyPress(key)}
+                    disabled={key === ''}
+                  >
+                    {key === 'delete' ? (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 4H8L1 12L8 20H21C21.5304 20 22.0391 19.7893 22.4142 19.4142C22.7893 19.0391 23 18.5304 23 18V6C23 5.46957 22.7893 4.96086 22.4142 4.58579C22.0391 4.21071 21.5304 4 21 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M18 9L12 15M12 9L18 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    ) : key}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div className="upfront-intro-indicator">
+              <div className="upfront-intro-indicator-bar" />
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
@@ -653,25 +818,19 @@ function HomeScreen() {
 }
 
 function EverythingUpfront() {
-  const [showIntroSplash, setShowIntroSplash] = useState(false)
-  const [showVerifySheet, setShowVerifySheet] = useState(false)
-  const [showSSNSheet, setShowSSNSheet] = useState(false)
+  const [showOnboarding, setShowOnboarding] = useState(false)
   const [showHelpCentre, setShowHelpCentre] = useState(false)
   const [isVerified, setIsVerified] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowIntroSplash(true)
+      setShowOnboarding(true)
     }, 2000)
     return () => clearTimeout(timer)
   }, [])
 
-  const handleUnlock = () => {
-    setShowSSNSheet(true)
-  }
-
   const handleSkip = () => {
-    setShowIntroSplash(false)
+    setShowOnboarding(false)
   }
 
   const handleLearnMore = () => {
@@ -682,18 +841,9 @@ function EverythingUpfront() {
     setShowHelpCentre(false)
   }
 
-  const handleBackFromHelpCentre = () => {
-    setShowHelpCentre(false)
-  }
-
   const handleVerified = () => {
     setIsVerified(true)
-    setShowSSNSheet(false)
-    setShowIntroSplash(false)
-  }
-
-  const handleCloseSSNSheet = () => {
-    setShowSSNSheet(false)
+    setShowOnboarding(false)
   }
 
   return (
@@ -709,27 +859,19 @@ function EverythingUpfront() {
         <div className="ssn-mobile-screen">
           <HomeScreen />
           
-          <IntroSplashScreen 
-            isOpen={showIntroSplash}
-            onClose={() => setShowIntroSplash(false)}
-            onContinue={handleUnlock}
+          <CombinedOnboardingSheet 
+            isOpen={showOnboarding}
+            onClose={() => setShowOnboarding(false)}
             onSkip={handleSkip}
+            onVerified={handleVerified}
+            onLearnMore={handleLearnMore}
           />
 
-          {showIntroSplash && (
-            <UpfrontSSNModal 
-              isOpen={showSSNSheet}
-              onClose={handleCloseSSNSheet}
-              onVerified={handleVerified}
-              onLearnMore={handleLearnMore}
-            />
-          )}
-
-          {showIntroSplash && showSSNSheet && (
+          {showOnboarding && (
             <HelpCentreModal
               isOpen={showHelpCentre}
               onClose={handleCloseHelpCentre}
-              onBack={handleBackFromHelpCentre}
+              onBack={handleCloseHelpCentre}
             />
           )}
         </div>
