@@ -1376,3 +1376,336 @@
   background: #262626;
   border-radius: 3px;
 }
+
+/* Upfront SSN Modal */
+.upfront-ssn-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 42px;
+}
+
+.upfront-ssn-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 42px;
+}
+
+.upfront-ssn-container {
+  position: relative;
+  background: white;
+  border-radius: 20px 20px 0 0;
+  padding: 12px 16px 0;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  animation: upfront-sheet-slide-up 0.3s ease-out;
+}
+
+.upfront-ssn-grabber {
+  width: 36px;
+  height: 5px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin: 0 auto 12px;
+}
+
+.upfront-ssn-close {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #262626;
+  padding: 0;
+}
+
+.upfront-ssn-content {
+  flex: 1;
+  padding: 16px 0;
+}
+
+.upfront-ssn-image {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 24px;
+}
+
+.upfront-padlock {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.upfront-ssn-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #262626;
+  margin: 0 0 8px;
+}
+
+.upfront-ssn-subtitle {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 20px;
+  line-height: 1.4;
+}
+
+.upfront-ssn-input-field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.upfront-ssn-input-field.focused {
+  border-color: #262626;
+}
+
+.upfront-ssn-input-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.upfront-ssn-floating-label {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 11px;
+  color: #747474;
+}
+
+.upfront-ssn-input-value {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #262626;
+}
+
+.upfront-cursor {
+  animation: upfront-blink 1s infinite;
+}
+
+@keyframes upfront-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.upfront-ssn-input-placeholder {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #747474;
+}
+
+.upfront-ssn-encryption {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  color: #747474;
+  margin: 8px 0 0;
+  line-height: 1.4;
+}
+
+.upfront-ssn-encryption-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: #262626;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.upfront-ssn-bottom {
+  padding: 16px 0;
+}
+
+.upfront-ssn-bottom.keyboard-open {
+  padding-bottom: 8px;
+}
+
+.upfront-ssn-btn-primary {
+  width: 100%;
+  padding: 16px 0;
+  background: #262626;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.upfront-ssn-btn-primary.disabled {
+  background: #e3e3e3;
+  color: #a3a3a3;
+  cursor: not-allowed;
+}
+
+.upfront-ssn-legal {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 10px;
+  color: #747474;
+  text-align: center;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.upfront-ssn-legal .underline {
+  text-decoration: underline;
+}
+
+.upfront-ssn-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 16px 0;
+  background: #f5f5f5;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.upfront-keypad-key {
+  height: 48px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 20px;
+  color: #262626;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upfront-keypad-key.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.upfront-keypad-key.delete {
+  background: transparent;
+}
+
+.upfront-ssn-indicator {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.upfront-ssn-indicator-bar {
+  width: 134px;
+  height: 5px;
+  background: #262626;
+  border-radius: 3px;
+}
+
+/* Upfront Verifying Overlay */
+.upfront-verifying-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 20px 20px 0 0;
+}
+
+.upfront-verifying-logo {
+  margin-bottom: 16px;
+  perspective: 400px;
+}
+
+.upfront-verifying-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: upfront-coin-flip 1.5s ease-in-out infinite;
+}
+
+@keyframes upfront-coin-flip {
+  0% { transform: rotateY(0deg); }
+  50% { transform: rotateY(180deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.upfront-verifying-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+}
+
+/* Upfront Success */
+.upfront-ssn-success-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 16px;
+}
+
+.upfront-ssn-success-icon {
+  margin-bottom: 24px;
+}
+
+.upfront-confirm-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: upfront-confirm-bounce 0.6s ease-out;
+}
+
+@keyframes upfront-confirm-bounce {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.15); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.upfront-ssn-success-title {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #262626;
+  margin: 0 0 12px;
+}
+
+.upfront-ssn-success-desc {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.upfront-ssn-footer {
+  padding: 16px 0;
+}

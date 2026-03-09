@@ -131,41 +131,167 @@ function IntroSplashScreen({ isOpen, onClose, onContinue, onSkip }) {
   )
 }
 
-function VerifyIdentitySheet({ isOpen, onClose, onContinue, onLearnMore }) {
+function UpfrontSSNModal({ isOpen, onClose, onVerified, onLearnMore }) {
+  const [inputValue, setInputValue] = useState('')
+  const [isInputFocused, setIsInputFocused] = useState(false)
+  const [isVerifying, setIsVerifying] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  useEffect(() => {
+    if (!isOpen) {
+      setInputValue('')
+      setIsInputFocused(false)
+      setIsVerifying(false)
+      setShowSuccess(false)
+    }
+  }, [isOpen])
+
   if (!isOpen) return null
 
-  return (
-    <div className="ssn-verify-sheet-wrapper">
-      <div className="ssn-verify-sheet-overlay" onClick={onClose} />
-      <div className="ssn-verify-sheet-container">
-        <div className="ssn-verify-sheet-grabber" />
-        <button className="ssn-verify-sheet-close" onClick={onClose}>
-          <CloseIcon />
-        </button>
-        
-        <div className="ssn-verify-sheet-content">
-          <div className="ssn-verify-sheet-image">
-            <img src="/icons/SSN.png" alt="SSN Verification" className="ssn-verify-padlock" />
+  const handleKeyPress = (key) => {
+    if (key === 'delete') {
+      setInputValue(prev => prev.slice(0, -1))
+    } else if (inputValue.length < 4 && /^[0-9]$/.test(key)) {
+      setInputValue(prev => prev + key)
+    }
+  }
+
+  const handleInputClick = () => {
+    setIsInputFocused(true)
+  }
+
+  const handleVerify = () => {
+    if (inputValue.length === 4) {
+      setIsVerifying(true)
+      setTimeout(() => {
+        setIsVerifying(false)
+        setShowSuccess(true)
+      }, 2000)
+    }
+  }
+
+  const handleDone = () => {
+    onVerified()
+    onClose()
+  }
+
+  const hasValue = inputValue.length === 4
+
+  if (showSuccess) {
+    return (
+      <div className="upfront-ssn-wrapper">
+        <div className="upfront-ssn-overlay" onClick={onClose} />
+        <div className="upfront-ssn-container">
+          <div className="upfront-ssn-grabber" />
+          <button className="upfront-ssn-close" onClick={onClose}>
+            <CloseIcon />
+          </button>
+          
+          <div className="upfront-ssn-success-content">
+            <div className="upfront-ssn-success-icon">
+              <img src="/icons/confirm.png" alt="Verified" className="upfront-confirm-image" />
+            </div>
+            <h2 className="upfront-ssn-success-title">You're verified!</h2>
+            <p className="upfront-ssn-success-desc">Your balance should be ready to spend within an hour. We'll notify you when it's good to go.</p>
           </div>
           
-          <div className="ssn-verify-sheet-text">
-            <h2 className="ssn-verify-sheet-title">Verify your identity to unlock</h2>
-            <p className="ssn-verify-sheet-desc">
-              Before you can start shopping with your balance, we need you to provide the last 4 digits of your SSN to confirm it's really you.
-            </p>
+          <div className="upfront-ssn-footer">
+            <button className="upfront-ssn-btn-primary" onClick={handleDone}>Done</button>
+          </div>
+          
+          <div className="upfront-ssn-indicator">
+            <div className="upfront-ssn-indicator-bar" />
           </div>
         </div>
+      </div>
+    )
+  }
 
-        <div className="ssn-verify-sheet-footer">
-          <button className="ssn-verify-sheet-btn-primary" onClick={onContinue}>
-            Continue to verify
-          </button>
-          <button className="ssn-verify-sheet-btn-tertiary" onClick={onLearnMore}>
-            Learn more
-          </button>
-          <div className="ssn-verify-sheet-indicator">
-            <div className="ssn-verify-sheet-indicator-bar" />
+  return (
+    <div className="upfront-ssn-wrapper">
+      <div className="upfront-ssn-overlay" onClick={onClose} />
+      <div className="upfront-ssn-container">
+        <div className="upfront-ssn-grabber" />
+        <button className="upfront-ssn-close" onClick={onClose}>
+          <CloseIcon />
+        </button>
+
+        {isVerifying && (
+          <div className="upfront-verifying-overlay">
+            <div className="upfront-verifying-logo">
+              <img src="/icons/Dbug.jpg" alt="Depop" className="upfront-verifying-image" />
+            </div>
+            <p className="upfront-verifying-text">Verifying...</p>
           </div>
+        )}
+        
+        <div className="upfront-ssn-content">
+          <div className="upfront-ssn-image">
+            <img src="/icons/SSN.png" alt="SSN Verification" className="upfront-padlock" />
+          </div>
+
+          <h2 className="upfront-ssn-title">Verify your identity to unlock</h2>
+          <p className="upfront-ssn-subtitle">Please enter the last 4 digits of your Social Security Number.</p>
+          
+          <button 
+            className={`upfront-ssn-input-field ${isInputFocused ? 'focused' : ''}`}
+            onClick={handleInputClick}
+          >
+            <LockIcon />
+            <div className="upfront-ssn-input-content">
+              {isInputFocused ? (
+                <>
+                  <span className="upfront-ssn-floating-label">Last 4 digits of your SSN</span>
+                  <span className="upfront-ssn-input-value">
+                    XXX-XX-{inputValue}<span className="upfront-cursor">|</span>
+                  </span>
+                </>
+              ) : (
+                <span className="upfront-ssn-input-placeholder">Last 4 digits of your SSN</span>
+              )}
+            </div>
+          </button>
+
+          <p className="upfront-ssn-encryption">
+            Your SSN is secured with AES-256 encryption, and never stored or shared. <button className="upfront-ssn-encryption-link" onClick={onLearnMore}>Learn more</button>
+          </p>
+        </div>
+
+        <div className={`upfront-ssn-bottom ${isInputFocused ? 'keyboard-open' : ''}`}>
+          <button 
+            className={`upfront-ssn-btn-primary ${!hasValue ? 'disabled' : ''}`}
+            onClick={handleVerify}
+            disabled={!hasValue}
+          >
+            Verify
+          </button>
+          <p className="upfront-ssn-legal">
+            By continuing you agree to our payment partner's <span className="underline">Connect</span>, <span className="underline">Treasury</span> and <span className="underline">Service Agreements</span>
+          </p>
+        </div>
+
+        {isInputFocused && (
+          <div className="upfront-ssn-keypad">
+            {['1', '2', '3', '4', '5', '6', '7', '8', '9', '', '0', 'delete'].map((key) => (
+              <button
+                key={key}
+                className={`upfront-keypad-key ${key === '' ? 'empty' : ''} ${key === 'delete' ? 'delete' : ''}`}
+                onClick={() => key && handleKeyPress(key)}
+                disabled={key === ''}
+              >
+                {key === 'delete' ? (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 4H8L1 12L8 20H21C21.5304 20 22.0391 19.7893 22.4142 19.4142C22.7893 19.0391 23 18.5304 23 18V6C23 5.46957 22.7893 4.96086 22.4142 4.58579C22.0391 4.21071 21.5304 4 21 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M18 9L12 15M12 9L18 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                ) : key}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="upfront-ssn-indicator">
+          <div className="upfront-ssn-indicator-bar" />
         </div>
       </div>
     </div>
@@ -541,16 +667,11 @@ function EverythingUpfront() {
   }, [])
 
   const handleUnlock = () => {
-    setShowVerifySheet(true)
-  }
-
-  const handleMaybeLater = () => {
-    setShowIntroSplash(false)
-  }
-
-  const handleContinueToVerify = () => {
-    setShowVerifySheet(false)
     setShowSSNSheet(true)
+  }
+
+  const handleSkip = () => {
+    setShowIntroSplash(false)
   }
 
   const handleLearnMore = () => {
@@ -571,13 +692,8 @@ function EverythingUpfront() {
     setShowIntroSplash(false)
   }
 
-  const handleCloseVerifySheet = () => {
-    setShowVerifySheet(false)
-  }
-
-  const handleBackFromSSN = () => {
+  const handleCloseSSNSheet = () => {
     setShowSSNSheet(false)
-    setShowVerifySheet(true)
   }
 
   return (
@@ -597,38 +713,19 @@ function EverythingUpfront() {
             isOpen={showIntroSplash}
             onClose={() => setShowIntroSplash(false)}
             onContinue={handleUnlock}
-            onSkip={handleMaybeLater}
+            onSkip={handleSkip}
           />
 
           {showIntroSplash && (
-            <VerifyIdentitySheet 
-              isOpen={showVerifySheet}
-              onClose={handleCloseVerifySheet}
-              onContinue={handleContinueToVerify}
+            <UpfrontSSNModal 
+              isOpen={showSSNSheet}
+              onClose={handleCloseSSNSheet}
+              onVerified={handleVerified}
               onLearnMore={handleLearnMore}
             />
           )}
 
-          {showIntroSplash && showVerifySheet && (
-            <HelpCentreModal
-              isOpen={showHelpCentre}
-              onClose={handleCloseHelpCentre}
-              onBack={handleBackFromHelpCentre}
-            />
-          )}
-          
-          <SSNVerificationModal 
-            isOpen={showSSNSheet}
-            onClose={() => {
-              setShowSSNSheet(false)
-              setShowIntroSplash(false)
-            }}
-            onVerified={handleVerified}
-            onBack={handleBackFromSSN}
-            onLearnMore={handleLearnMore}
-          />
-
-          {showSSNSheet && (
+          {showIntroSplash && showSSNSheet && (
             <HelpCentreModal
               isOpen={showHelpCentre}
               onClose={handleCloseHelpCentre}
