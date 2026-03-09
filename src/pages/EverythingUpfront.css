@@ -1238,6 +1238,7 @@
   display: flex;
   flex-direction: column;
   animation: upfront-sheet-slide-up 0.3s ease-out;
+  overflow: hidden;
 }
 
 @keyframes upfront-sheet-slide-up {
@@ -1352,6 +1353,12 @@
   margin-bottom: 12px;
 }
 
+.upfront-intro-btn-primary.disabled {
+  background: #E3E3E3;
+  color: #A3A3A3;
+  cursor: not-allowed;
+}
+
 .upfront-intro-btn-tertiary {
   width: 100%;
   padding: 12px 0;
@@ -1381,25 +1388,85 @@
   max-height: 100%;
 }
 
+/* Step slide animations */
+.upfront-step-slide {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.upfront-step-visible {
+  animation: upfront-step-fade-in 0.3s ease-out;
+}
+
+.upfront-step-slide-out {
+  animation: upfront-step-swipe-out 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+.upfront-step-slide-in {
+  animation: upfront-step-swipe-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes upfront-step-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes upfront-step-swipe-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes upfront-step-swipe-in {
+  0% {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 /* Step 2: SSN Content within combined sheet */
 .upfront-ssn-step-content {
   flex: 1;
   padding: 16px 0;
 }
 
+.upfront-ssn-step-content {
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
 .upfront-ssn-step-content.keyboard-active {
-  padding: 8px 0;
+  padding: 40px 0 8px;
+  transform: translateY(-20px);
 }
 
 .upfront-ssn-step-image {
   display: flex;
   justify-content: center;
   padding: 16px 0 24px;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 1;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .upfront-ssn-step-image.hidden {
-  display: none;
+  opacity: 0;
+  max-height: 0;
+  padding: 0;
 }
 
 .upfront-padlock-img {
@@ -1486,10 +1553,12 @@
 
 .upfront-ssn-step-bottom {
   padding: 16px 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .upfront-ssn-step-bottom.keyboard-open {
   padding: 12px 0 8px;
+  transform: translateY(-10px);
 }
 
 .upfront-ssn-step-legal {
@@ -1512,6 +1581,18 @@
   padding: 12px 16px;
   background: #f5f5f5;
   margin: 0 -16px;
+  animation: upfront-keypad-slide-in 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes upfront-keypad-slide-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .upfront-keypad-btn {

@@ -85,6 +85,7 @@ function ProductCard({ product }) {
 
 function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnMore }) {
   const [step, setStep] = useState(1)
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const [inputValue, setInputValue] = useState('')
   const [isInputFocused, setIsInputFocused] = useState(false)
   const [isVerifying, setIsVerifying] = useState(false)
@@ -93,6 +94,7 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
   useEffect(() => {
     if (!isOpen) {
       setStep(1)
+      setIsTransitioning(false)
       setInputValue('')
       setIsInputFocused(false)
       setIsVerifying(false)
@@ -103,7 +105,11 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
   if (!isOpen) return null
 
   const handleUnlock = () => {
-    setStep(2)
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setStep(2)
+      setIsTransitioning(false)
+    }, 300)
   }
 
   const handleKeyPress = (key) => {
@@ -186,7 +192,7 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
 
         {/* Step 1: Intro */}
         {step === 1 && (
-          <>
+          <div className={`upfront-step-slide ${isTransitioning ? 'upfront-step-slide-out' : 'upfront-step-visible'}`}>
             <div className="upfront-intro-content">
               <div className="upfront-intro-card-container">
                 <img 
@@ -216,12 +222,12 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
                 <div className="upfront-intro-indicator-bar" />
               </div>
             </div>
-          </>
+          </div>
         )}
 
         {/* Step 2: SSN Collection */}
         {step === 2 && (
-          <>
+          <div className="upfront-step-slide upfront-step-slide-in">
             <div className={`upfront-ssn-step-content ${isInputFocused ? 'keyboard-active' : ''}`}>
               <div className={`upfront-ssn-step-image ${isInputFocused ? 'hidden' : ''}`}>
                 <img src="/icons/SSN.png" alt="SSN Verification" className="upfront-padlock-img" />
@@ -290,7 +296,7 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
             <div className="upfront-intro-indicator">
               <div className="upfront-intro-indicator-bar" />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

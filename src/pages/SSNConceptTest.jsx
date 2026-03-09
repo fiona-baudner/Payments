@@ -167,7 +167,7 @@ function VerifyIdentitySheet({ isOpen, onClose, onContinue, onLearnMore }) {
         
         <div className="ssn-verify-sheet-content">
           <div className="ssn-verify-sheet-image">
-            <img src="/icons/SSN.png" alt="SSN Verification" className="ssn-verify-padlock" />
+            <img src="/icons/SSN_card.png" alt="SSN Verification" className="ssn-verify-padlock" />
           </div>
           
           <div className="ssn-verify-sheet-text">
