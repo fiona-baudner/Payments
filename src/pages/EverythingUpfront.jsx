@@ -210,7 +210,7 @@ function UpfrontSSNModal({ isOpen, onClose, onVerified, onLearnMore }) {
   return (
     <div className="upfront-ssn-wrapper">
       <div className="upfront-ssn-overlay" onClick={onClose} />
-      <div className="upfront-ssn-container">
+      <div className={`upfront-ssn-container ${isInputFocused ? 'keyboard-active' : ''}`}>
         <div className="upfront-ssn-grabber" />
         <button className="upfront-ssn-close" onClick={onClose}>
           <CloseIcon />
@@ -225,8 +225,8 @@ function UpfrontSSNModal({ isOpen, onClose, onVerified, onLearnMore }) {
           </div>
         )}
         
-        <div className="upfront-ssn-content">
-          <div className="upfront-ssn-image">
+        <div className={`upfront-ssn-content ${isInputFocused ? 'keyboard-active' : ''}`}>
+          <div className={`upfront-ssn-image ${isInputFocused ? 'hidden' : ''}`}>
             <img src="/icons/SSN.png" alt="SSN Verification" className="upfront-padlock" />
           </div>
 

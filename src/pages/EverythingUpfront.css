@@ -1401,10 +1401,15 @@
   background: white;
   border-radius: 20px 20px 0 0;
   padding: 12px 16px 0;
-  max-height: 90%;
+  max-height: 95%;
   display: flex;
   flex-direction: column;
   animation: upfront-sheet-slide-up 0.3s ease-out;
+  overflow: hidden;
+}
+
+.upfront-ssn-container.keyboard-active {
+  max-height: 100%;
 }
 
 .upfront-ssn-grabber {
@@ -1434,12 +1439,22 @@
 .upfront-ssn-content {
   flex: 1;
   padding: 16px 0;
+  overflow-y: auto;
+}
+
+.upfront-ssn-content.keyboard-active {
+  padding: 8px 0;
 }
 
 .upfront-ssn-image {
   display: flex;
   justify-content: center;
   padding: 16px 0 24px;
+  transition: all 0.2s ease;
+}
+
+.upfront-ssn-image.hidden {
+  display: none;
 }
 
 .upfront-padlock {
@@ -1538,7 +1553,7 @@
 }
 
 .upfront-ssn-bottom.keyboard-open {
-  padding-bottom: 8px;
+  padding: 12px 0 8px;
 }
 
 .upfront-ssn-btn-primary {
@@ -1577,21 +1592,19 @@
 .upfront-ssn-keypad {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  padding: 16px 0;
+  gap: 6px;
+  padding: 12px 16px;
   background: #f5f5f5;
   margin: 0 -16px;
-  padding-left: 16px;
-  padding-right: 16px;
 }
 
 .upfront-keypad-key {
-  height: 48px;
+  height: 44px;
   background: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-family: 'Aktiv Grotesk Extended', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   color: #262626;
   cursor: pointer;
   display: flex;
@@ -1599,13 +1612,25 @@
   justify-content: center;
 }
 
+.upfront-keypad-key:active {
+  background: #e3e3e3;
+}
+
 .upfront-keypad-key.empty {
   background: transparent;
   cursor: default;
 }
 
+.upfront-keypad-key.empty:active {
+  background: transparent;
+}
+
 .upfront-keypad-key.delete {
   background: transparent;
+}
+
+.upfront-keypad-key.delete:active {
+  background: #e3e3e3;
 }
 
 .upfront-ssn-indicator {
