@@ -1913,13 +1913,14 @@
   justify-content: center;
 }
 
-/* Bottom part of lock - shows body and lower portion */
+/* Main lock image - shows everything except right shackle */
 .upfront-lock-body {
   width: 100px;
   height: auto;
   object-fit: contain;
   position: absolute;
-  clip-path: inset(35% 0 0 0);
+  /* Clip out the right side of the shackle area */
+  clip-path: polygon(0% 0%, 55% 0%, 55% 35%, 100% 35%, 100% 100%, 0% 100%);
   animation: upfront-body-appear 0.5s ease-out 0.3s both;
 }
 
@@ -1934,34 +1935,27 @@
   }
 }
 
-/* Top part of lock - shackle area that lifts up */
+/* Right side of shackle - pivots open from center top */
 .upfront-lock-shackle {
   width: 100px;
   height: auto;
   object-fit: contain;
   position: absolute;
-  clip-path: inset(0 0 65% 0);
-  animation: upfront-shackle-unlock 1s ease-out 0.5s both;
+  /* Only show the right side of the shackle */
+  clip-path: polygon(50% 0%, 100% 0%, 100% 40%, 50% 40%);
+  transform-origin: 50% 35%;
+  animation: upfront-shackle-pivot 0.8s ease-out 0.6s both;
 }
 
-@keyframes upfront-shackle-unlock {
+@keyframes upfront-shackle-pivot {
   0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
+    transform: rotate(0deg);
   }
-  30% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-3px) rotate(-2deg);
-  }
-  70% {
-    transform: translateY(-8px) rotate(-5deg);
+  40% {
+    transform: rotate(0deg);
   }
   100% {
-    transform: translateY(-20px) rotate(-15deg);
-    opacity: 1;
+    transform: rotate(-45deg);
   }
 }
 
