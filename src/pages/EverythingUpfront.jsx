@@ -147,8 +147,14 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
           </button>
           
           <div className="upfront-success-content">
-            <div className="upfront-success-icon">
-              <img src="/icons/confirm.png" alt="Verified" className="upfront-confirm-img" />
+            <div className="upfront-unlock-animation">
+              <img src="/icons/SSN.png" alt="Lock" className="upfront-lock-spin-unlock" />
+              <div className="upfront-unlock-checkmark">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="20" fill="#10b981"/>
+                  <path d="M12 20L18 26L28 16" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
             </div>
             <h2 className="upfront-success-title">You're verified!</h2>
             <p className="upfront-success-desc">Your balance should be ready to spend within an hour. We'll notify you when it's good to go.</p>
@@ -176,8 +182,8 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
 
         {isVerifying && (
           <div className="upfront-verifying-overlay">
-            <div className="upfront-verifying-logo">
-              <img src="/icons/Dbug.jpg" alt="Depop" className="upfront-verifying-image" />
+            <div className="upfront-lock-spinner">
+              <img src="/icons/SSN.png" alt="Verifying" className="upfront-lock-flip" />
             </div>
             <p className="upfront-verifying-text">Verifying...</p>
           </div>
