@@ -83,70 +83,48 @@ function ProductCard({ product }) {
   )
 }
 
-function IntroSplashScreen({ isOpen, onClose, onContinue, onMaybeLater }) {
+function IntroSplashScreen({ isOpen, onClose, onContinue, onSkip }) {
   if (!isOpen) return null
 
   return (
-    <div className="ssn-intro-splash">
-      {/* Status Bar */}
-      <div className="ssn-intro-status-bar">
-        <span className="ssn-intro-time">09:41</span>
-        <div className="ssn-intro-status-icons">
-          <svg width="17" height="11" viewBox="0 0 17 11" fill="none">
-            <path fillRule="evenodd" clipRule="evenodd" d="M10.5 2.5C10.5 1.67 11.17 1 12 1H15C15.83 1 16.5 1.67 16.5 2.5V8.5C16.5 9.33 15.83 10 15 10H12C11.17 10 10.5 9.33 10.5 8.5V2.5Z" stroke="#262626"/>
-            <rect x="11" y="2" width="5" height="7" rx="1" fill="#262626"/>
-          </svg>
-          <svg width="15" height="11" viewBox="0 0 15 11" fill="#262626">
-            <path d="M7.5 2.5C9.5 2.5 11.3 3.3 12.6 4.6L14 3.2C12.3 1.5 10 0.5 7.5 0.5C5 0.5 2.7 1.5 1 3.2L2.4 4.6C3.7 3.3 5.5 2.5 7.5 2.5Z"/>
-            <path d="M4.2 6.4L7.5 9.7L10.8 6.4C9.9 5.5 8.7 5 7.5 5C6.3 5 5.1 5.5 4.2 6.4Z"/>
-          </svg>
-          <svg width="17" height="11" viewBox="0 0 17 11" fill="none">
-            <rect x="0.5" y="0.5" width="3" height="10" rx="1" fill="#262626"/>
-            <rect x="5" y="3" width="3" height="7.5" rx="1" fill="#262626"/>
-            <rect x="9.5" y="5" width="3" height="5.5" rx="1" fill="#262626"/>
-            <rect x="14" y="7" width="3" height="3.5" rx="1" fill="#262626"/>
-          </svg>
-        </div>
-      </div>
+    <div className="upfront-intro-wrapper">
+      <div className="upfront-intro-overlay" onClick={onClose} />
+      <div className="upfront-intro-sheet">
+        <div className="upfront-intro-grabber" />
+        <button className="upfront-intro-close" onClick={onClose}>
+          <CloseIcon />
+        </button>
 
-      {/* Close Button */}
-      <button className="ssn-intro-close" onClick={onClose}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M18 6L6 18M6 6L18 18" stroke="#262626" strokeWidth="2" strokeLinecap="round"/>
-        </svg>
-      </button>
+        {/* Content */}
+        <div className="upfront-intro-content">
+          <div className="upfront-intro-card-container">
+            <img 
+              src={imgBalanceCard} 
+              alt="Depop Balance Card" 
+              className="upfront-intro-card-image"
+            />
+          </div>
 
-      {/* Content */}
-      <div className="ssn-intro-content">
-        <div className="ssn-intro-card-container">
-          <img 
-            src={imgBalanceCard} 
-            alt="Depop Balance Card" 
-            className="ssn-intro-card-image"
-          />
-        </div>
-
-        <div className="ssn-intro-text-wrapper">
-          <div className="ssn-intro-text">
-            <p className="ssn-intro-label">NEW</p>
-            <h1 className="ssn-intro-title">Be first to shop with your balance</h1>
-            <p className="ssn-intro-desc">
-              Use the money you make from your sales on Depop to buy what's next — before anyone else.
+          <div className="upfront-intro-text">
+            <p className="upfront-intro-label">Get early access</p>
+            <h1 className="upfront-intro-title">Shop with your Depop Balance</h1>
+            <p className="upfront-intro-desc">
+              Unlock today with a quick identity check, and use your earnings to fund new finds.
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Footer */}
-      <div className="ssn-intro-footer">
-        <button className="ssn-intro-btn-primary" onClick={onContinue}>
-          Unlock now
-        </button>
-        <button className="ssn-intro-btn-tertiary" onClick={onMaybeLater}>
-          Maybe later
-        </button>
-        <div className="ssn-intro-indicator">
-          <div className="ssn-intro-indicator-bar" />
+        {/* Footer */}
+        <div className="upfront-intro-footer">
+          <button className="upfront-intro-btn-primary" onClick={onContinue}>
+            Unlock now
+          </button>
+          <button className="upfront-intro-btn-tertiary" onClick={onSkip}>
+            Skip for now
+          </button>
+          <div className="upfront-intro-indicator">
+            <div className="upfront-intro-indicator-bar" />
+          </div>
         </div>
       </div>
     </div>
@@ -619,7 +597,7 @@ function EverythingUpfront() {
             isOpen={showIntroSplash}
             onClose={() => setShowIntroSplash(false)}
             onContinue={handleUnlock}
-            onMaybeLater={handleMaybeLater}
+            onSkip={handleMaybeLater}
           />
 
           {showIntroSplash && (
