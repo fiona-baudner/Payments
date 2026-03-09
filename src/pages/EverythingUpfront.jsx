@@ -148,6 +148,7 @@ function CombinedOnboardingSheet({ isOpen, onClose, onSkip, onVerified, onLearnM
           
           <div className="upfront-success-content">
             <div className="upfront-unlock-animation">
+              <img src="/icons/SSN.png" alt="Locked" className="upfront-lock-locked" />
               <img src="/icons/SSN_unlocked.png" alt="Unlocked" className="upfront-lock-unlocked" />
             </div>
             <h2 className="upfront-success-title">You're verified!</h2>
