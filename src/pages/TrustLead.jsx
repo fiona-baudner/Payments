@@ -173,7 +173,9 @@ function VerifyIdentitySheet({ isOpen, onClose, onContinue, onLearnMore }) {
           <div className="trust-verify-sheet-text">
             <h2 className="trust-verify-sheet-title">Verify your identity to unlock</h2>
             <p className="trust-verify-sheet-desc">
-              Before you can use your balance, we need you to provide the last 4 digits of your SSN. We're legally required to do this to confirm you're really you, and to protect you from fraud and identity theft.
+              Before you can use your balance, we need you to provide the last 4 digits of your SSN.
+              <br /><br />
+              We're legally required to do this to confirm you're really you, and to protect you from fraud and identity theft.
             </p>
           </div>
         </div>
