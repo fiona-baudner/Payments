@@ -5,6 +5,7 @@ import BalanceRespend from './pages/BalanceRespend'
 import ExistingSellerOnboarding from './pages/ExistingSellerOnboarding'
 import SSNConceptTest from './pages/SSNConceptTest'
 import EverythingUpfront from './pages/EverythingUpfront'
+import TrustLead from './pages/TrustLead'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {/* Prototype pages without Layout for clean user testing */}
       <Route path="/balance-respend/ssn-concept-test" element={<SSNConceptTest />} />
       <Route path="/balance-respend/everything-upfront" element={<EverythingUpfront />} />
+      <Route path="/balance-respend/trust-lead" element={<TrustLead />} />
       
       {/* All other routes with Layout */}
       <Route path="/*" element={

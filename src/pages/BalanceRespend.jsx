@@ -61,6 +61,14 @@ function BalanceRespend() {
             accentColor="#8b5cf6"
             accentColorEnd="#a855f7"
           />
+          <PrototypeCard
+            title="Prototype3: Trust lead"
+            description="SSN verification with trust-building approach."
+            icon="🔒"
+            to="/balance-respend/trust-lead"
+            accentColor="#f59e0b"
+            accentColorEnd="#f97316"
+          />
         </div>
       </div>
     </div>
