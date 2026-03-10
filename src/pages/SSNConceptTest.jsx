@@ -173,7 +173,7 @@ function VerifyIdentitySheet({ isOpen, onClose, onContinue, onLearnMore }) {
           <div className="ssn-verify-sheet-text">
             <h2 className="ssn-verify-sheet-title">Verify your identity to unlock</h2>
             <p className="ssn-verify-sheet-desc">
-              Before you can start shopping with your balance, we need you to provide the last 4 digits of your SSN to confirm it's really you.
+              Before you can use your balance, we just need to confirm it's really you.
             </p>
           </div>
         </div>
