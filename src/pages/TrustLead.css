@@ -598,8 +598,36 @@
 
 .trust-verify-sheet-desc {
   font-family: 'Aktiv Grotesk Extended', sans-serif;
-  font-size: 14px;
-  line-height: 1.43;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #262626;
+  margin: 0;
+}
+
+.trust-verify-info-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.trust-verify-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.trust-verify-info-text {
+  font-family: 'Aktiv Grotesk Extended', sans-serif;
+  font-size: 12px;
+  line-height: 1.33;
   color: #262626;
   margin: 0;
 }
